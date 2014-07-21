@@ -1162,9 +1162,12 @@ def format_discussion_comment(request_user, response):
 	with relation to a user (request_user)
 	"""
 	#print len(response.comment.split()) > 3, response.query_weight
-	
+
+	print("format_discussion_comment response input: " + str(vars(response)) + "  " + str(type(response)))
+
 	return {'uid': response.user.id-361,
 			'username': get_formatted_username(response.user),
+			'spanish_comment': response.spanish_comment,
 			#'location': get_location(response.user),
 			'cid': response.id,
 			'disc_id': response.discussion_statement.id,
@@ -1186,9 +1189,12 @@ def format_general_discussion_comment(response):
 	z = ZipCodeLog.objects.get(user=response.user).location if ZipCodeLog.objects.filter(user=response.user).exists() else None
 	tag = AdminCommentTag.objects.get(comment=response) if AdminCommentTag.objects.filter(comment=response).exists() else None
 
+	print("format_general_discussion_comment response input: " + str(vars(response)) + "  " + str(type(response)))
 
 	return {'uid': response.user.id,
 		'username': get_formatted_username(response.user),
+		'spanish_comment': response.spanish_comment,
+		'original_language': response.original_language,
 		'email' : response.user.email,
 		'location': get_location(response.user),
 		'cid': response.id,

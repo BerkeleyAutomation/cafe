@@ -1,10 +1,14 @@
 #!/usr/bin/env python
+#coding=utf-8
 import environ
 from opinion.opinion_core.models import *
+from opinion.opinion_core.modelsMulti import *
 import numpy as np
 from opinion.includes.queryutils import *
 import json
 from django.db.models import Q
+from django.db.models import *
+from django.contrib.auth.models import User
 
 """
 counties = {}
@@ -118,3 +122,132 @@ for r in CommentAgreement.objects.filter(comment__in = DiscussionComment.objects
     if r.agreement != .5:
         print 1-r.agreement
 """
+
+
+# state = OpinionSpaceStatement.objects.get(statement_number=0)
+# state.statement = "La aplicacion de la Ley de Asistencia Asequible ('Obamacare')"
+# print(state.statement)
+# # state.short_version = "slider"
+# state.save()
+
+
+
+
+# state = OpinionSpaceStatement.objects.get(statement_number=1)
+# state.statement = "Calidad de la educacion K-12 publicas"
+# print(state.statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=2)
+# state.statement = "Asequibilidad de los colegios y universidades estatales"
+# print(state.statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=3)
+# state.statement = "El acceso a los servicios estatales para los inmigrantes indocumentados"
+# print(state.statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=4)
+# state.statement = "Leyes y reglamentos relativos a la marihuana recreativa"
+# print(state.statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=5)
+# state.statement = "Los derechos de matrimonio para parejas del mismo sexo"
+# print(state.statement)
+# # state.short_version = "slider"
+# state.save()
+
+# class Place(Model):
+#     name = CharField(max_length=50)
+#     address = CharField(max_length=80)
+
+#     def __str__(self):              # __unicode__ on Python 2
+#         return "%s the place" % self.name
+
+# class Restaurant(Model):
+#     place = OneToOneField(Place, primary_key=True)
+#     serves_hot_dogs = BooleanField()
+#     serves_pizza = BooleanField()
+
+#     def __str__(self):              # __unicode__ on Python 2
+#         return "%s the restaurant" % self.place.name
+
+def translate(comment):
+    # validatedComment = validate(comment)
+    # return validatedComment
+    return "spanish(" + comment + ")"
+
+# firstComment = DiscussionComment.objects.get(id=1)
+# firstComment.spanish_comment = "California tiene una de las politicas ambientales mas progresistas de la nacion, debemos trabajar mas para hacer de California un centro internacional de 'tecnologia verde'. Esta inversion equilibra valores de la innovacion y la responsabilidad ambiental de nuestro estado."
+# firstComment.original_language = "english"
+# firstComment.save()
+
+#firstComment = DiscussionComment.objects.get(id=1)
+# print(firstComment.spanish_comment)
+# print(firstComment.original_language)
+
+
+# state = OpinionSpaceStatement.objects.get(statement_number=0)
+# state.statement = 'Implementation of the Affordable Care Act ("Obamacare")'
+# state.spanish_statement = u"La aplicación de la Ley de Asistencia Asequible ('Obamacare')"
+# print(state.statement)
+# print(state.spanish_statement)
+# state.input_type = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=1)
+# state.statement = 'Quality of K-12 public education'
+# state.spanish_statement = u"Calidad de la educación K-12 públicas"
+# print(state.statement)
+# print(state.spanish_statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=2)
+# state.statement = 'Affordability of state colleges and universities'
+# state.spanish_statement = u"Asequibilidad de los colegios y universidades estatales"
+# print(state.statement)
+# print(state.spanish_statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=3)
+# state.statement = 'Access to state services for undocumented immigrants'
+# state.spanish_statement = u"El acceso a los servicios estatales para los inmigrantes indocumentados"
+# print(state.statement)
+# print(state.spanish_statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=4)
+# state.statement = 'Laws and regulations regarding recreational marijuana'
+# state.spanish_statement = u"Leyes y reglamentos relativos a la marihuana recreativa"
+# print(state.statement)
+# print(state.spanish_statement)
+# # state.short_version = "slider"
+# state.save()
+
+# state = OpinionSpaceStatement.objects.get(statement_number=5)
+# state.statement = 'Marriage rights for same-sex partners'
+# state.spanish_statement = u"Los derechos de matrimonio para parejas del mismo sexo"
+# print(state.statement)
+# print(state.spanish_statement)
+# # state.short_version = "slider"
+# state.save()
+
+# super_user = User.objects.get(pk=1)
+# print(super_user.username)
+# super_user.set_password("crc")
+# super_user.save()
+
+for comment in DiscussionComment.objects.all():
+    comment.spanish_comment = translate(comment.comment)
+    print(comment.spanish_comment)
+    comment.save()
+

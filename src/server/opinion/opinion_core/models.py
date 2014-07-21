@@ -72,8 +72,10 @@ class OpinionSpaceStatement(Model):
     opinion_space = ForeignKey(OpinionSpace, related_name = 'statements', db_index = True)
     statement_number = PositiveSmallIntegerField()
     statement = CharField(max_length = 512)
+    spanish_statement = CharField(max_length = 512)
     short_version = CharField(max_length = 128)
     created = DateTimeField(auto_now_add = True)
+    input_type = CharField(max_length = 50)
     
     def __unicode__(self):
         return self.statement
@@ -129,6 +131,8 @@ class UserRating(Model):
         ordering = ['user', 'opinion_space_statement']
 
 class DiscussionComment(Model):
+    original_language = CharField(max_length = 50) # the language for which the discussion comment was entered
+    spanish_comment = CharField(max_length = 1024) # stores spanish version of discussion comment
     user = ForeignKey(User, db_index = True)
     opinion_space = ForeignKey(OpinionSpace, related_name = 'comments', db_index = True)
     discussion_statement = ForeignKey(DiscussionStatement, related_name = 'comments', db_index = True)
@@ -143,7 +147,7 @@ class DiscussionComment(Model):
     is_current = BooleanField(db_index = True)
     query_weight = FloatField(null = True, db_index = True)
     created = DateTimeField(auto_now_add = True, db_index = True)
-    
+
     def __unicode__(self):
         return unicode(self.comment)
     

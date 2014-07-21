@@ -403,12 +403,22 @@ var _blooms = blooms = (function($, d3, console) {
                 
                 $('.rate-username').html('Suggested by Participant #'+d.uid);
                 var commentData = rate.pullComment(d.uid, 'uid', comments);
+                
                 var content = commentData.comment;
+                var spanish_content = commentData.spanish_comment;
+
+                
                 var cid = commentData.cid;
                 window.current_cid = cid;
                 window.current_uid = d.uid;
                 //$('.rate-loading').show();
-                rate.updateDescriptions(document.getElementById('commentInput'), content);
+                console.log("spanish_content")
+                console.log(spanish_content)
+
+
+                rate.updateDescriptions(document.getElementById('commentInputEnglish'), content);
+                rate.updateDescriptions(document.getElementById('commentInputSpanish'), spanish_content);
+
                 $('.rate').show();
                 /*$('.rate').slideDown(function() {
                     $('.rate-loading').hide();

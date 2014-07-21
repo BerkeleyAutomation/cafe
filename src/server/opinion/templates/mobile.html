@@ -42,6 +42,8 @@
 <script type='text/javascript' src='{{url_root}}/media/mobile/js/blooms.js?nonce={{random_password}}'></script>
 <script type='text/javascript' src='{{url_root}}/media/mobile/js/rate.js?nonce={{random_password}}'></script>
 <script type='text/javascript' src='{{url_root}}/media/mobile/js/accounts.js?nonce={{random_password}}'></script>
+<script type='text/javascript' src='{{url_root}}/media/mobile/js/multi-lingual.js'></script>
+
 
 {% if horizontal_slide %}
 <script type='text/javascript' src='{{url_root}}/media/mobile/js/crc-transparent-slider-horizontal.js?nonce={{random_password}}'></script>
@@ -59,6 +61,8 @@
 
 <!--JavaScript that needs to be run on init-->
 <script type='text/javascript'>
+
+  window.spanish = '{{spanish}}';
 
   window.url_root = '{{ url_root }}';
 
@@ -272,13 +276,38 @@
       <br/>
 
       <center>
-        <div class="landing-img-title">
-          <!--<img width="300px;" style="position: relative; left: -10px;padding-top: 5px;padding-bottom: 5px;" src="{{url_root}}/media/mobile/img/cafe/crc-title-img.png">-->
-          California<br/>Report Card
+
+        <div class ='landing-translate-btn english'>  
+            español
+       </div>
+
+        <div class = 'landing-translate-btn spanish'>
+            english
+        </div>
+
+        <div class="landing-img-title spanish" style="margin-top: 30px;">
+            Califique <br/> California
         </div>  
 
-        <div class="landing-img-txt">   
-           Join <strong>{{num_users}}</strong> others who have contributed to California's collective intelligence.
+        <div class="landing-img-title english" style="margin-top: 30px;">
+          <!--<img width="300px;" style="position: relative; left: -10px;padding-top: 5px;padding-bottom: 5px;" src="{{url_root}}/media/mobile/img/cafe/crc-title-img.png">-->
+            California<br/> Report Card        
+        </div> 
+
+<!--         <div class="landing-img-txt">  
+          {% if not spanish %}
+           Join <strong>{{num_users}}</strong> others who have contributed to California's collective intelligence. 
+          {% else %} 
+           Únete <strong>{{num_users}}</strong> otros que han contribuido a la inteligencia colectiva de California.
+          {% endif %}
+       </div> -->
+
+        <div class="landing-img-txt english">  
+           Join <strong>{{num_users}}</strong> others who have contributed to California's collective intelligence. 
+       </div>
+
+      <div class="landing-img-txt spanish">  
+           Únete <strong>{{num_users}}</strong> otros que han contribuido a la inteligencia colectiva de California.
        </div>
         
       </center>
@@ -286,8 +315,14 @@
 
       <!--<img class="capitol-bg" src="{{url_root}}/media/mobile/img/cafe/capitol-landing1.png">-->
 
-      <center><div class='button-div-red first-time-btn' style="position: relative; top: 80px;">Begin</div></center>
+      <center><div class='button-div-red first-time-btn spanish' style="position: relative; top: 40px;">
+        Empiece 
+      </div></center>
       
+      <center><div class='button-div-red first-time-btn english' style="position: relative; top: 40px;">
+        Begin 
+      </div></center>
+
        <!--<div class="landing-img-txt">   
            Take a moment to join <strong>{{num_users}}</strong> others who have graded the State of California on six timely issues.<br/>
        </div>-->
@@ -307,9 +342,10 @@
         <div class="endsliders-slide" id="slide-{{statement.id}}">
 
          <div class="home-btn-dialog-box first-dialog-nav">
-            <div class="home-btn-title">
-                Grade California
-            </div>
+            
+            <div class="home-btn-title english"> Grade California </div>
+
+            <div class="home-btn-title spanish"> Califique California </div>
 
             <div class="home-btn-wrapper" style="width:30%;display:inline-block; text-align: right;">
                 <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png">
@@ -323,9 +359,19 @@
 
           <div class="home-btn-dialog-box slider-nav-box" style="display: none;">
             
-            <div class="home-btn-title">
-              Grade California
-            </div>
+<!--             <div class="home-btn-title">
+              {% if not spanish %}
+                California Report Card
+              {% else %}
+                Califique California
+              {% endif %}
+            </div> -->
+
+            <div class="home-btn-title english"> Grade California </div>
+
+            <div class="home-btn-title spanish"> Califique California </div>
+
+
            <div class="home-btn-wrapper" style="width:30%;display:inline-block; text-align: right;">
             <img width="20px;" class='endsliders-back-btn' id="back-{{statement.id}}" src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png"> 
                
@@ -338,7 +384,10 @@
 
           <center>   
               <div class="slider-progress"></div>
-              <div class="statement-style">{{ statement.statement }}</div>
+
+              <div class="statement-style english">{{ statement.statement }}</div>
+
+              <div class="statement-style spanish">{{ statement.spanish_statement }}</div>
 
               <div class="median-grade-{{statement.id}} med-grade-box"></div>
 
@@ -352,7 +401,17 @@
               </div>
                   
               <div style="clear: both;"></div>
-              <a href="#" class="skip-button-{{statement.id}} skip-btn" id="next-{{statement.id}}" style="color: #ffffff;font-size: 16px;font-weight: normal !important;position:relative;top: -40px;left: 100px;">Skip</a>
+              <a href="#" class="skip-button-{{statement.id}} skip-btn english" id="next-{{statement.id}}" style="color: #ffffff;font-size: 16px;font-weight: normal !important;position:relative;top: -40px;left: 100px;">Skip </a>
+
+              <a href="#" class="skip-button-{{statement.id}} skip-btn spanish" id="next-{{statement.id}}" style="color: #ffffff;font-size: 16px;font-weight: normal !important;position:relative;top: -40px;left: 100px;"> Omita </a>
+
+              <div class ='landing-translate-btn english'>  
+                español
+              </div>
+
+              <div class = 'landing-translate-btn spanish'>
+                english
+              </div>
               
           </center>
 
@@ -364,9 +423,10 @@
 
   <div class = 'register' id='register'>
       <div class="home-btn-dialog-box">
-            <div class="home-btn-title">
-                Save Grades
-            </div>
+            
+            <div class="home-btn-title english"> Save Grades </div>
+
+            <div class="home-btn-title spanish"> Ahorra Grados </div>
             
             <div class="home-btn-wrapper" style="width:30%;display:inline-block; text-align: right;">
                 <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png"> 
@@ -379,14 +439,31 @@
          </div> 
 
       <div class= 'registerpanel'>
-          <div class="basic-header2">{{client_settings.ZIP_CODE_INSTRUCTIONS}}: </div>
+          <div class="basic-header2 english"> Enter your ZIP code to save the grades: </div>
+
+          <div class="basic-header2 spanish"> 
+                Ingrese su código postal para guardar los grados:
+           </div>
+
+
+<!--           {{client_settings.ZIP_CODE_INSTRUCTIONS}}: -->
+
 
           <form id='reg_form' class='form-horizontal reg_form'>
               <center>
               <div data-role="fieldcontain">
+                 
                   <input type ='tel' id='regzip' name='regzip' class='regforminput' value="" placeholder="Zip Code" onBlur="$('.registerb').click();">
+                  
                   <div class='alert-error' id='zipcode-error' style='display:none;'></div>
               </div>
+
+<!--               <div class = 'spanish' data-role="fieldcontain">
+                 
+                  <input type ='tel' id='regzip' name='regzip' class='regforminput' value="" placeholder="código postal" onBlur="$('.registerb').click();">
+                  
+                  <div class='alert-error' id='zipcode-error' style='display:none;'></div>
+              </div> -->
 
               <!--These are hidden dummy attributes for book-keeping-->
 
@@ -394,6 +471,7 @@
               <input type='hidden' value='{{ url_root }}' name='url'>
               <div data-role="fieldcontain" style="display: none;">
                   <label for="regusername" class='regforminput'>Email:</label>
+
                   <input type="hidden" id='regusername' name='regusername' class='regforminput' value='{{ random_username }}' placeholder="Email" data-theme='b'/>
                   <div class='alert-error' id='username-error' style='display:none;'></div>
               </div>
@@ -408,16 +486,33 @@
                   </div>-->
               </center>
           </form>
-          <br/>
 
-           <center> <div class="button-div registerb" id="registerb" style="position:relative;top: -18px;">{{client_settings.ZIP_CODE_BUTTON}}</div></center>
+
+            <br/>
+
+             <center> <div class="button-div registerb spanish" id="registerb" style="position:relative;top: -3px;"> Guardar </div></center>
+
+              <center> <div class="button-div registerb english" id="registerb" style="position:relative;top: -3px;">{{client_settings.ZIP_CODE_BUTTON}}</div></center>
+
+            <div class ='landing-translate-btn english' style="position:relative;top: 50px;">  
+                español
+            </div>
+
+            <div class = 'landing-translate-btn spanish' style="position:relative;top: 50px;">
+              english
+            </div>
+
       </div>
   </div>
 
   <div class='dialog dialog-style'>
       <div class="home-btn-dialog-box">
-            <div class="home-btn-title" style="text-shadow: none;">
+            <div class="home-btn-title english" style="text-shadow: none;">
                 Join the Discussion
+            </div>
+
+            <div class="home-btn-title spanish" style="text-shadow: none;">
+                Únete a la discusión
             </div>
             
             <div class="home-btn-wrapper" style="width:30%;display:inline-block; text-align: right;">
@@ -430,21 +525,51 @@
 
          </div> 
       <!--<img class="header-img-topic center" src="{{ url_root }}/media/mobile/img/cafe/CRC_join.png"/>-->
-      <div class='dialog-text1 dialog-text-style'>
-          Thank you for grading these issues.  We now invite you to consider and propose additional issues you feel should have priority for attention at the state level.  
+      
+      <div class='dialog-text1 dialog-text-style english'>
+          Thank you for grading these issues. We now invite you to consider and propose additional issues you feel should have priority for attention at the state level. 
       </div><br/>
-       <center>
+
+      <div class='dialog-text1 dialog-text-style spanish'>
+          ¡Gracias por calificar estos temas usted. Ahora le invitamos a considerar y proponer temas adicionales que considerar que se deberían tener prioridad para la atención a nivel estatal.  
+      </div><br/>
+       
+
+       <center class='english'>
               <div class="discuss-btn-div">
-                  <div class='dialog-ready button-div'> Join </button>
+                  
+                  <div class='dialog-ready button-div english'> Join </button>
+                                    
                   <!--<button type='submit' data-theme='b' class='dialog-next'  onclick="$('.dialog-text1').hide();$('.dialog-text2').show();"><font style="font-size: 16px;">Next</font></button>-->
               </div>
+                  
       </center>
+
+       <center class='spanish'>
+              <div class="discuss-btn-div">
+                <div class='dialog-ready button-div spanish'> Una </button>
+              </div>
+      </center>
+
+
+      <div class ='landing-translate-btn english' style="position:relative;top: 200px;">  
+        español
+      </div>
+
+      <div class = 'landing-translate-btn spanish' style="position:relative;top: 200px;">
+        english
+      </div>
+
   </div>
 
   <div class='comment-input'>
        <div class="home-btn-dialog-box">
-            <div class="home-btn-title" style="width:50%;">
+            <div class="home-btn-title english" style="width:50%;">
                 What do you think?
+            </div>
+
+            <div class="home-btn-title spanish" style="width:50%;">
+                Qué piensas?
             </div>
             
             <div class="home-btn-wrapper" style="width:45%;display:inline-block; text-align: right;">
@@ -461,13 +586,20 @@
 
       <center>
           <div class='comment-panel'>
-              <div class="basic-header2" style="text-align:left;">{{topic}}<br/></div>
+              <div class="basic-header2 english" style="text-align:left;">{{topic}}<br/></div>
+              <div class="basic-header2 spanish" style="text-align:left;">¿Qué problema se debe incluir en la próxima boleta de calificaciones y por qué es importante para los californianos?<br/></div>
               <textarea name='answer' id='entered-comment'></textarea>
               <div class="standard-btn-div" style="width: 100%;">
-                  <div class='comment-submit-btn button-div' style="display: inline-block;">Post</div>
-                  <div class='comment-cancel-btn button-div' style="display: inline-block; ">Later</div>
+                  <div class='comment-submit-btn button-div english' style="display: inline-block;">Post</div>
+                  <div class='comment-submit-btn button-div spanish' style="display: inline-block;">Puesto</div>
+                  <div class='comment-cancel-btn button-div english' style="display: inline-block; ">Later</div>
+                  <div class='comment-cancel-btn button-div spanish' style="display: inline-block; ">Luego</div>
               </div>
           </div>
+
+      <div class ='landing-translate-btn english'>  español </div>
+
+      <div class = 'landing-translate-btn spanish'> english </div>
       </center>
   </div>
 
@@ -479,7 +611,7 @@
             </div>-->
 
             <div class="home-btn-title" style="text-shadow: none;display: inline-block; width: 20%;padding-left: 10px;">
-                The Café 
+                El Café 
             </div>
 
             <div style="display: inline-block;text-align: right; padding-right: 15px; width: 60%;">
@@ -505,6 +637,7 @@
             <div class='instructions2'>{{client_settings.INSTRUCTIONS_2}}</div>
             <div class='instructions3'><div style="padding-right: 5px; padding-left: 5px;">{{client_settings.INSTRUCTIONS_3}}</div>
     </center>
+  
   </div>
 
 
@@ -513,10 +646,15 @@
   <div class='rate' id="rate">
 
       <div class="home-btn-dialog-box">
-            <div class="home-btn-title">
-                Rate this Idea
+            
+            <div class="home-btn-title spanish">
+                Valorar este Idea
             </div>
             
+            <div class="home-btn-title english">
+                Rate this Idea
+            </div>
+
             <div class="home-btn-wrapper" style="width:30%;display:inline-block; text-align: right;">
                 <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png"> 
                 
@@ -527,17 +665,31 @@
 
          </div>
 
-    <center>
-       <textarea id='commentInput' class='answer' readonly="true"></textarea>
+        <div class = 'landing-translate-btn spanish' style="padding-top:30px;">
+          english
+        </div>
+
+        <div class ='landing-translate-btn english' style="padding-top:30px;">  
+          español
+        </div>
+
+    <center class='english' style="padding-top:10px;">
+       <textarea id='commentInputEnglish' class='answer' readonly="true"> </textarea>
        <div style="display: none;"><span class="rate-username"></span></div>
     </center>
 
+    <center class='spanish' style="padding-top:10px;">
+       <textarea id='commentInputSpanish' class='answer' readonly="true"></textarea>
+       <div style="display: none;"><span class="rate-username"></span></div>
+    </center>
 
-    <div id="flag" class="flag-style"></div>
+    <div id="flag" class="flag-style" style="padding-top:200px;"></div>
 
-    <div class="answerwrapper">
+    <div class="answerwrapper english">
+
      <div class='sliders' style="text-align: left;">
-       How important is this issue for the next Report Card?<br/><br/>
+       How important is this issue for the next Report Card? <br/><br/>
+
        <center>
        <div class="slider" id="slider-importance"></div>
        </center>
@@ -551,8 +703,32 @@
            <div style="clear: both;"></div>-->
           
 
-        <center>
+        <center class='english'>
             <div class="button-div" id='go-back'>Next</div>
+        </center>
+
+      </div>
+
+    </div>
+
+    <div class="answerwrapper spanish">
+     
+     <div class='sliders' style="text-align: left;">
+       ¿Qué tan importante es este asunto para la próxima Report Card? <br/><br/>
+       <center>
+       <div class="slider" id="slider-importance"></div>
+       </center>
+
+       <div class="slider-padding"></div>
+
+       <div style="clear: both;"></div>
+
+       <!--  How would you rate the State of California on this issue today?<br/>
+         <div class="slider" id="slider-grade"></div>
+           <div style="clear: both;"></div>-->
+          
+        <center class='spanish'>
+            <div class="button-div" id='go-back'>Próximo</div>
         </center>
 
       </div>
@@ -572,11 +748,27 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-        <div style="padding: 20px;">
+        <div class='english' style="padding: 20px;">
             {{client_settings.LOGOUT_DIALOG_TEXT}}<br/><br/>
             <a href="http://californiareportcard.org" target="_blank" style="color: #555555;">http://californiareportcard.org</a><br/><br/>
 	    Twitter: <a href="http://twitter.com/home?status=How%20do%20you%20grade%20California?%20%20Try%20@CAReportCard%20developed%20by%20@Cal%20@GavinNewsom%20%26%20@Ken_Goldberg%20%20http://californiareportcard.org/mobile%20%23CA%20%23Gov" target="_blank" style="color: #555555;">@CAReportCard</a><br/>
 	    Facebook: <a href="http://on.fb.me/1jF60JL" target="_blank" style="color: #555555;">CAReportCard</a><br/><br/>
+       
+        <div class ='landing-translate-btn english' style="padding-top:30px;">  
+          español
+        </div>
+        
+        </div>
+
+        <div class='spanish' style="padding: 20px;">
+            Gracias! Por favor, invita a tus amigos:<br/><br/>
+            <a href="http://californiareportcard.org" target="_blank" style="color: #555555;">http://californiareportcard.org</a><br/><br/>
+      Twitter: <a href="http://twitter.com/home?status=How%20do%20you%20grade%20California?%20%20Try%20@CAReportCard%20developed%20by%20@Cal%20@GavinNewsom%20%26%20@Ken_Goldberg%20%20http://californiareportcard.org/mobile%20%23CA%20%23Gov" target="_blank" style="color: #555555;">@CAReportCard</a><br/>
+      Facebook: <a href="http://on.fb.me/1jF60JL" target="_blank" style="color: #555555;">CAReportCard</a><br/><br/>
+        
+        <div class = 'landing-translate-btn spanish' style="padding-top:30px;">
+          english
+        </div>
         </div>
  </div>
 
@@ -764,8 +956,9 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           The CRC allows visitors to grade issues facing California.
           Presss the buttons to assign grades to these 6 issues facing California (click the skip button for issues where you don't want to assign a grade.)
           <br/><br/>
@@ -813,6 +1006,13 @@
           <em>A:</em> That's a great point; we're asking people to give an overall grade, which is indeed a coarse measure!
           But it's also like grading a student for a class, they may have done well on some things, poorly on others, etc…<br/><br/>
       </div>
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+        <div class="basic-header spanish">Ayuda</div>
+            El CRC permite a los visitantes a las cuestiones de calidad que enfrenta California. Presss los botones para asignar calificaciones a estos 6 problemas que enfrenta California (haga clic en el botón de salto para las cuestiones en las que no desea asignar una calificación.)
+        </div>
+
+
   </div>
 
   <div class='dialog-help-median dialog-style' style="z-index:999">
@@ -871,7 +1071,7 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
+      <div class='dialog-text-style-noflow small-left-padding english'>
           <div class="basic-header">Help</div>
           <em>Q:</em> What should I do on this page?<br/>
           <em>A:</em> Click any mug (each participant has a mug, we display only 8 at a time)<br/><br/>
@@ -889,6 +1089,11 @@
           The selection of which participants’ mugs to display is random but biased toward newer mugs, those that have received fewer ratings.
           Specifically, the likelihood of displaying a mug is based on its standard error = stdev / sqrt(k) where k is the number of times it has been graded so far, and stdev is the variance of those grades. Over time, this ensures that the confidence, or error-bar on the estimated grade for each mug, tends to be the same length for all mugs. Each time you finish grading a set of mugs, the table will be refreshed with more mugs.<br/><br/>
       </div>
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header">Ayuda</div>
+      </div>
+
   </div>
 
   <div class='dialog-help-map2 dialog-style' style="z-index:999">

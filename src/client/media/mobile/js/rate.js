@@ -195,8 +195,18 @@ var rate = (function($, d3, console) {
             index++;
         }
 
-        comment = comments[index]['comment'];
+
+
+        if (window.spanish=='spanish') {
+            console.log("checking if I can index comments");
+            console.log(comments[index]['aaron']);
+            comment = comments[index]['spanish_comment'];
+        } else {
+            comment = comments[index]['comment'];
+        }
+
         uid = comments[index]['uid'];
+        
         return {
             comment: comment,
             uid: uid,
@@ -209,14 +219,19 @@ var rate = (function($, d3, console) {
     // so if we change that invariat, we will have to change how this function works as well.
 
     function getCommentByUID(uid, comments) {
-        var comment, cid, index = 0;
+        var spanish_comment, comment, cid, index = 0;
         while (comments[index]['uid'] !== uid) {
             index++;
         }
+        
+        spanish_comment = comments[index]['spanish_comment'];
 
         comment = comments[index]['comment'];
+        
+
         cid = comments[index]['cid'];
         return {
+            spanish_comment:spanish_comment,
             comment: comment,
             uid: uid,
             cid: cid
