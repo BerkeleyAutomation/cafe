@@ -711,26 +711,23 @@ def install_client(request):
 @admin_required
 def proof_read_comments(request):
     cid = request.REQUEST.get('cid',-1)
-    
     language = request.REQUEST.get('language', 'english')
-    print('language' + language)
-    for i in range(10):
-        print
-
     updated = None
     if request.method == 'POST':
+        print("request.POST: " + str(request.POST))
         for key in request.POST:
-            query = DiscussionComment.objects.filter(id=key)
-            if len(query) == 0:
-                return HttpResponse("This comment does not exist", status = 404)
-            else:
-                if language == 'english':
-                    query[0].comment = request.POST[key]
-                else: # we will return here to implement MANDARIN
-                    query[0].spanish_comment = request.POST[key]
-                query[0].save()
-                updated = True
-                cid = key
+            if key != 'language':
+                query = DiscussionComment.objects.filter(id=key)
+                if len(query) == 0:
+                    return HttpResponse("This comment does not exist", status = 404)
+                else:
+                    if language == 'english':
+                        query[0].comment = request.POST[key]
+                    else: # we will return here to implement MANDARIN
+                        query[0].spanish_comment = request.POST[key]
+                    query[0].save()
+                    updated = True
+                    cid = key
 
     if cid == -1:
         return HttpResponse("This comment does not exist", status = 404)
@@ -739,12 +736,10 @@ def proof_read_comments(request):
         if len(query) == 0:
             return HttpResponse("This comment does not exist", status = 404)
         data = []
-        
         if language == 'english':
-            data.append({'type': cid,'text':query[0].comment})
+            data.append({'type': cid,'text':query[0].comment, 'language': language})
         else: # we will return here
-            data.append({'type': cid,'text':query[0].spanish_comment})
-        
+            data.append({'type': cid,'text':query[0].spanish_comment, 'language' : language})
 
         form = ProofreadForm().create_form(data)    
         return render_to_response('proofread.html', context_instance = RequestContext(request, {'form':form, 'saved':updated}))
