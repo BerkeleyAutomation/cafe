@@ -198,8 +198,7 @@ var rate = (function($, d3, console) {
 
 
         if (window.spanish=='spanish') {
-            console.log("checking if I can index comments");
-            console.log(comments[index]['aaron']);
+
             comment = comments[index]['spanish_comment'];
         } else {
             comment = comments[index]['comment'];
@@ -352,7 +351,8 @@ var rate = (function($, d3, console) {
             type: "POST",
             url: window.url_root + "/os/savecommentagreement/1/" + rating.cid + "/",
             data: {
-                "agreement": rating.r1 / 100.0
+                "agreement": rating.r1 / 100.0,
+                "raterViewingLanguage": window.spanish
             },
             success: function(data) {
                 if (data.hasOwnProperty('success')) {
@@ -377,7 +377,8 @@ var rate = (function($, d3, console) {
             dataType: 'json',
             url: window.url_root + "/os/savecommentrating/1/" + rating.cid + "/",
             data: {
-                "rating": rating.r2 / 100.0
+                "rating": rating.r2 / 100.0,
+                "raterViewingLanguage": window.spanish
             },
             success: function(data) {
                 if (data.hasOwnProperty('success')) {
@@ -390,13 +391,14 @@ var rate = (function($, d3, console) {
         });
     }
 
-    function sendComment(comment) {
+    function sendComment(comment, commentLanguage) {
         $.ajax({
             type: "POST",
             dataType: 'json',
             url: window.url_root + "/os/savecomment/1/",
             data: {
-                "comment": comment
+                "comment": comment,
+                "commentLanguage" : commentLanguage
             },
             success: function(data) {
                 if (data.hasOwnProperty('success')) {
@@ -523,7 +525,7 @@ $(document).ready(function() {
         window.cur_state = 'continue';
         utils.showLoading('');
         rate.logUserEvent(6,'comment submitted');
-        rate.sendComment($('#entered-comment').val());
+        rate.sendComment($('#entered-comment').val(), window.spanish);
         utils.hideLoading('');
         //if ($('#regemail').val()){
 	//		accounts.sendEmail($('#regemail').val());

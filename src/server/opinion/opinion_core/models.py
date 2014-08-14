@@ -133,6 +133,7 @@ class UserRating(Model):
 class DiscussionComment(Model):
     original_language = CharField(max_length = 50) # the language for which the discussion comment was entered
     spanish_comment = CharField(max_length = 1024) # stores spanish version of discussion comment
+    translation_is_reviewed = BooleanField()
     user = ForeignKey(User, db_index = True)
     opinion_space = ForeignKey(OpinionSpace, related_name = 'comments', db_index = True)
     discussion_statement = ForeignKey(DiscussionStatement, related_name = 'comments', db_index = True)
@@ -178,6 +179,9 @@ class AdminApprovedComment(Model):
 class CommentRating(Model):
     comment = ForeignKey(DiscussionComment, related_name = 'ratings', db_index = True)
     rater = ForeignKey(User, db_index = True)
+    rater_viewing_language = CharField(max_length = 64, null = True, blank = True) # the language that the rater viewed the comment in. 
+    rating = FloatField(db_index = True)
+    score = FloatField(db_index = True, null = True, blank = True)
     rating = FloatField(db_index = True)
     score = FloatField(db_index = True, null = True, blank = True)
     #z_score = FloatField(db_index = True, null = True, blank = True)
@@ -196,6 +200,7 @@ class CommentRating(Model):
 class CommentAgreement(Model):
     comment = ForeignKey(DiscussionComment, related_name = 'agreeance', db_index = True)
     rater = ForeignKey(User, db_index = True)
+    rater_viewing_language = CharField(max_length = 64, null = True, blank = True) # the language that the rater viewed the comment in. 
     agreement = FloatField(db_index = True)
     is_current = BooleanField(db_index = True)
     created = DateTimeField(auto_now_add = True, db_index = True)

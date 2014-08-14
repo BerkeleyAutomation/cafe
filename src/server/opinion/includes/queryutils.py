@@ -925,6 +925,7 @@ def save_agreement_rating(request, agreement, user_id, os_id, disc_stmt):
 	Saves a singular agreement rating
 	"""
 	# Make the agreement a float between allowed max and min values
+
 	try:
 	    agreement = float(agreement)
 	    agreement = max(agreement, MIN_RATING)
@@ -940,11 +941,14 @@ def save_agreement_rating(request, agreement, user_id, os_id, disc_stmt):
 	if not len(comment) == 1:
 	    return json_error('That comment does not exist.')
 
+	rater_viewing_language = request.REQUEST.get("raterViewingLanguage", "english")
 	comment = comment[0]
 
 	# Update and store a new comment agreement
-	CommentAgreement.objects.filter(comment = comment, rater = request.user, is_current = True).update(is_current = False)
-	ca = CommentAgreement(comment = comment, rater = request.user, agreement = agreement, is_current = True)
+	CommentAgreement.objects.filter(comment = comment, rater = request.user, 
+									is_current = True, rater_viewing_language = rater_viewing_language).update(is_current = False)
+	ca = CommentAgreement(comment = comment, rater = request.user, agreement = agreement, 
+						 is_current = True, rater_viewing_language = rater_viewing_language)
 	ca.save()
 
 	# Recalculate the rater's reviewer score
@@ -981,6 +985,8 @@ def save_insightful_rating(request, rating, user_id, os_id, disc_stmt):
 
 	comment = comment[0]
 
+	rater_viewing_language = request.REQUEST.get("raterViewingLanguage", "english")
+
 	# Check if the rating is an early bird
 	ratings = comment.ratings.filter(is_current = True, comment = comment).order_by('created')
 	eb = 0
@@ -1001,8 +1007,9 @@ def save_insightful_rating(request, rating, user_id, os_id, disc_stmt):
 	score = calculate_reputation_score(os_id, comment_rater, comment_ratee, rating)
 	
 	# Update the comment rating
-	CommentRating.objects.filter(comment = comment, rater = request.user, is_current = True).update(is_current = False)
-	cr = CommentRating(comment = comment, rater = request.user, rating = rating, score = score, reviewer_score = 1, is_current = True, early_bird = eb)
+	CommentRating.objects.filter(comment = comment, rater = request.user, is_current = True, rater_viewing_language = rater_viewing_language).update(is_current = False)
+	cr = CommentRating(comment = comment, rater = request.user, rating = rating, score = score, reviewer_score = 1, 
+		              is_current = True, early_bird = eb, rater_viewing_language = rater_viewing_language)
 	cr.save()
 		
 	# Update the comment object with a new average rating and average score
@@ -1163,8 +1170,6 @@ def format_discussion_comment(request_user, response):
 	"""
 	#print len(response.comment.split()) > 3, response.query_weight
 
-	print("format_discussion_comment response input: " + str(vars(response)) + "  " + str(type(response)))
-
 	return {'uid': response.user.id-361,
 			'username': get_formatted_username(response.user),
 			'spanish_comment': response.spanish_comment,
@@ -1189,7 +1194,7 @@ def format_general_discussion_comment(response):
 	z = ZipCodeLog.objects.get(user=response.user).location if ZipCodeLog.objects.filter(user=response.user).exists() else None
 	tag = AdminCommentTag.objects.get(comment=response) if AdminCommentTag.objects.filter(comment=response).exists() else None
 
-	print("format_general_discussion_comment response input: " + str(vars(response)) + "  " + str(type(response)))
+
 
 	return {'uid': response.user.id,
 		'username': get_formatted_username(response.user),

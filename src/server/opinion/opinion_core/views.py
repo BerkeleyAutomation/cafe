@@ -28,6 +28,7 @@ from opinion.decorators import *
 
 from django.contrib.auth import authenticate, login
 from django.views.decorators.cache import cache_control
+from opinion.scripts.updateTranslations import *
 
 import math
 import numpy
@@ -714,7 +715,6 @@ def proof_read_comments(request):
     language = request.REQUEST.get('language', 'english')
     updated = None
     if request.method == 'POST':
-        print("request.POST: " + str(request.POST))
         for key in request.POST:
             if key != 'language':
                 query = DiscussionComment.objects.filter(id=key)
@@ -725,6 +725,8 @@ def proof_read_comments(request):
                         query[0].comment = request.POST[key]
                     else: # we will return here to implement MANDARIN
                         query[0].spanish_comment = request.POST[key]
+                    if query[0].original_language == language: # Sets the translation_is_reviewed flag to True if the comment we are editing and 
+                        query[0].translation_is_reviewed = True
                     query[0].save()
                     updated = True
                     cid = key
@@ -2104,8 +2106,11 @@ def os_save_rating(request, os_id):
 def os_save_comment(request, os_id, disc_stmt_id = None):
     params = request.REQUEST
     
+
     new_comment = params.get('comment', False)
     new_comment = decode_to_unicode(new_comment)
+    comment_language = params.get("commentLanguage", "english")
+    comment_language = decode_to_unicode(comment_language) # What does decode to unicode do?
     
     if new_comment != False:
         
@@ -2139,12 +2144,26 @@ def os_save_comment(request, os_id, disc_stmt_id = None):
         
         # Save new comment if it's not an empty string
         if new_comment != '':
-            comment = DiscussionComment(user = request.user,
-                                        opinion_space_id = os_id,
-                                        discussion_statement = disc_stmt,
-                                        comment = new_comment,
-                                        query_weight = -1,
-                                        is_current = True)
+            if comment_language == 'english':
+                comment = DiscussionComment(user = request.user,
+                                            opinion_space_id = os_id,
+                                            discussion_statement = disc_stmt,
+                                            comment = new_comment,
+                                            spanish_comment = translate_to_spanish(new_comment),
+                                            original_language = comment_language,
+                                            query_weight = -1,
+                                            is_current = True)
+            else: # comment is in Spanish
+                comment = DiscussionComment(user = request.user,
+                                            opinion_space_id = os_id,
+                                            discussion_statement = disc_stmt,
+                                            comment = translate_to_english(new_comment),
+                                            spanish_comment =  new_comment,
+                                            original_language = comment_language,
+                                            query_weight = -1,
+                                            is_current = True)      
+          
+
             # Set score variables as the previous comment's score 
             if old_comment_recent:
                 comment.average_rating = old_comment_recent.average_rating

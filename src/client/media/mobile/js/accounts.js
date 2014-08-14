@@ -791,7 +791,7 @@ $(document).ready(function() {
 
 
     $('.edit-comment-save-btn').click(function() {
-        rate.sendComment($('.edit-comment-box').val());
+        rate.sendComment($('.edit-comment-box').val(), window.spanish);
         $('.menubar').find('.ui-btn-active').removeClass('ui-btn-active ui-focus');
 
         $('.my-comment').hide();
