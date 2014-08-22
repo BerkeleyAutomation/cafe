@@ -6,14 +6,14 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 DOC_ROOT = os.path.dirname(os.path.abspath(__file__))
-URL_ROOT = 'http://localhost:8000'
+URL_ROOT = 'http://californiareportcard.org/v24-es/'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'crc',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'crc_multi',
+        'USER': 'crc_multi',
+        'PASSWORD': 'CzRREMu5dczLNmn2',
     }
 }
 
@@ -24,7 +24,7 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_HOST_USER = ''
 EMAIL_PORT = 25
 
-MOBILE_FOLDER = '/var/www/cafe-v16/src/client/media/mobile/'
+MOBILE_FOLDER = '/var/www/cafe-v24-spanish/src/client/media/mobile/'
 
 MEDIA_DIR_NAME = "media"
 
@@ -33,7 +33,7 @@ SECRET_KEY = 'REPLACE_THIS_WITH_SECRET_KEY'
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/Users/Amit/research/caReportCard/cafe/src/client/media/'
+MEDIA_ROOT = '/var/www/cafe-v24/src/client/media/'
 
 
 HORIZONTAL_SLIDE = False

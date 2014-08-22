@@ -8,7 +8,7 @@ import json
 from django.db.models import Q
 from django.db.models import *
 from django.contrib.auth.models import User
-import opinion.goslate as goslate
+import goslate
 
 googleTranslate = goslate.Goslate()
 
