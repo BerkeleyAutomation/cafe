@@ -271,35 +271,35 @@ spanishComments = ['California es un lugar atractivo para los artistas; sin emba
 #     print
 #     print
 
-idMap = {}
-for num in range(0,len(good_comments)):
-    idMap[good_comments[num]] = englishComments[num], spanishComments[num]
+# idMap = {}
+# for num in range(0,len(good_comments)):
+#     idMap[good_comments[num]] = englishComments[num], spanishComments[num]
 
 
-cache = []
-for comment in DiscussionComment.objects.all():
-    theId = comment.user.id
-    if comment.user.id in good_comments:
-        print
-        print
-        print(comment.comment)
-        comment.comment = idMap[theId][0]
-        print
-        print
-        print(comment.comment)
-        print
-        print
-        print(comment.spanish_comment)
-        comment.spanish_comment = idMap[theId][1]
-        print
-        print
-        print(comment.spanish_comment)
-        cache.append(theId)
-        comment.blacklisted = False;
-        comment.save()
-    else:
-        comment.blacklisted = True
-        comment.save()
+# cache = []
+# for comment in DiscussionComment.objects.all():
+#     theId = comment.user.id
+#     if comment.user.id in good_comments:
+#         print
+#         print
+#         print(comment.comment)
+#         comment.comment = idMap[theId][0]
+#         print
+#         print
+#         print(comment.comment)
+#         print
+#         print
+#         print(comment.spanish_comment)
+#         comment.spanish_comment = idMap[theId][1]
+#         print
+#         print
+#         print(comment.spanish_comment)
+#         cache.append(theId)
+#         comment.blacklisted = False;
+#         comment.save()
+#     else:
+#         comment.blacklisted = True
+#         comment.save()
 
 # antiCache = []
 # for item in good_comments:
@@ -307,6 +307,9 @@ for comment in DiscussionComment.objects.all():
 #         antiCache.append(item)
 # print(antiCache)
 
-
+for obj in Settings.objects.all():
+    print('KEY:' + obj.key)
+    print('VALUE:' + obj.value)
+    
 
 

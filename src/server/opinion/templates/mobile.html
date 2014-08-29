@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
 
+
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 
     <!-- Social media stuff -->
@@ -589,8 +590,8 @@
 
       <center>
           <div class='comment-panel'>
-              <div class="basic-header2 english" style="text-align:left;">{{topic}}<br/></div>
-              <div class="basic-header2 spanish" style="text-align:left;">¿Cuál problema piensa debe ser incluído en la próxima Report Card, y por qué cree es importante para los californianos?<br/></div>
+              <div class="basic-header2 english" style="text-align:left; position:relative; top:10px;">{{topic}}<br/></div>
+              <div class="basic-header2 spanish" style="text-align:left; position:relative; top:10px;">¿Cuál problema piensa debe ser incluído en la próxima Report Card, y por qué cree es importante para los californianos?<br/></div>
               <textarea name='answer' id='entered-comment'></textarea>
               <div class="standard-btn-div" style="width: 100%;">
                   <div class='comment-submit-btn button-div english' style="display: inline-block;">Post</div>
@@ -600,9 +601,14 @@
               </div>
           </div>
 
-      <div class ='landing-translate-btn english'>  español </div>
+            <a href='#' class = 'landing-translate-btn english' style='position:absolute; top:65px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>  
+                  español
+            </a>
 
-      <div class = 'landing-translate-btn spanish'> english </div>
+            <a href='#' class = 'landing-translate-btn spanish' style='position:absolute; top:65px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>
+                  english
+            </a>
+
       </center>
   </div>
 
@@ -613,6 +619,13 @@
                 <span class='score-label'></span><span class='score-value'></span>
             </div>-->
 
+           <a href='#' class = 'landing-translate-btn english' style='position:absolute; top:40px; left: 100px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>  
+                  español
+            </a>
+
+            <a href='#' class = 'landing-translate-btn spanish' style='position:absolute; top:40px; left:100px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>
+                  english
+            </a>
             
 			      <div class="home-btn-title english" style="text-shadow: none;display: inline-block; width: 20%;padding-left: 10px;">
                 The Cafe 
@@ -857,8 +870,12 @@
 
   <div class='dialog-continue dialog-style'>
        <div class="home-btn-dialog-box">
-            <div class="home-btn-title" style="width:40%; text-shadow: none; position: relative; left: 15px;">
+            <div class="home-btn-title english" style="width:40%; text-shadow: none; position: relative; left: 15px;">
                 Thanks!
+            </div>
+
+            <div class="home-btn-title spanish" style="width:40%; text-shadow: none; position: relative; left: 15px;">
+                Gracias!
             </div>
             
             <div class="home-btn-wrapper" style="width:55%;display:inline-block; text-align: right;">
@@ -972,16 +989,34 @@
 
   <div class='dialog-help-alt dialog-style' style="z-index:999">
       <div class="home-btn-dialog-box">
+
+           <a href='#' class = 'landing-translate-btn english' style='position:absolute; top:40px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>  
+                  español
+            </a>
+
+            <a href='#' class = 'landing-translate-btn spanish' style='position:absolute; top:40px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>
+                  english
+            </a>
+
           <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png">
           
           <img width="20px;" class='home-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_home_bttn.png">
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
-          To learn more about this project, its history, related projects, and the team that built it, visit <a href="http://californiareportcard.org/" target="_blank" style="color: #4e300f;">californiareportcard.org</a>.<br/>
+ 
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
+          To learn more about this project, its history, related projects, and the team that built it, visit <a href="http://californiareportcard.org/" target="_blank" style="color: #ffffff;">californiareportcard.org</a>.<br/>
       </div>
+ 
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          Para conocer más sobre este proyecto, su historia, proyectos relacionados, y el equipo que lo construyó, visita <a href="http://californiareportcard.org/" target="_blank" style="color: #ffffff;">californiareportcard.org</a>.<br/>
+      </div>
+
+
   </div>
 
   <div class='dialog-help-grade dialog-style' style="z-index:999;">
@@ -1147,11 +1182,20 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           <em>Q:</em> Why do I need to enter my zip code?<br/>
           <em>A:</em> This will allow participants to compare results by region on a geographic map.
       </div>
+  
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          <em>P:</em> ¿Por qué me tengo que introducir mi código postal?<br/>
+          <em>R:</em> Esto permitirá a los participantes comparar los resultados por región en un mapa geográfico.
+      </div>
+
   </div>
 
   <div class='dialog-help-dialog dialog-style' style="z-index:999">
@@ -1171,11 +1215,20 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           You are invited to enter an online “cafe” where you can propose issues that you’d like to see included in the next report card (version 2.0 will come out later this Spring).
           You’ll be asked to grade other participants’ suggestions. Each participant’s suggestion is represented by a mug on the table.
       </div>
+
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          Se le invita a entrar en un "café" en línea donde se pueden proponer temas que le gustaría ver incluido en la próxima boleta de calificaciones (versión 2.0 saldrá a finales de este primavera). 
+          Se le pedirá a las sugerencias de grado de otros participantes. La sugerencia de que cada participante está representado por una taza sobre la mesa.
+      </div>
+
   </div>
 
   <div class='dialog-help-map1 dialog-style' style="z-index:999">
@@ -1216,6 +1269,14 @@
 
       <div class='dialog-text-style-noflow small-left-padding spanish'>
           <div class="basic-header">Ayuda</div>
+          <em>P:</em> ¿Qué debo hacer en esta página?<br/>
+          <em>R:</em> Presione sobre alguna taza (cada participante posee una taza, se muestran solo 8 tazas a la vez)<br/><br/>
+
+          <em>P:</em> ¿Cómo están las tazas dispuestas sobre la mesa?<br/>
+          <em>R:</em> Considerando que cada taza corresponde a un participante, el posicionamiento de las mismas está basado en las calificaciones de los participantes sobre los 6 temas. Piense que a cada tema le corresponde una dimensión en un espacio de 6 dimensiones y que las calificaciones que asignes corresponden a un punto en este espacio. Usamos reducción dimensional (actualmente análisis de componentes principales) para proyectar este espacio de 6 dimensiones sobre la mesa del "café". Si usted y algún otro participante asignan calificaciones similares, sus tazas se encontrarán cercanas una de otra. Sin embargo, las tazas que aparecen alejadas pertenecen a participantes cuyas calificaciones son muy diferentes a las tuyas. <br/><br/>
+
+          <em>P:</em> ¿Por qué solo aparecen 8 a 10 tazas sobre la meza? <br/>
+          <em>R:</em> A fin de evitar una sobrepoblación de tazas sobre la mesa, aparecen de una vez sobre la misma solo pequeño grupo de tazas. Seleccionamos aleatoriamente las tazas a mostrar sin embargo tienen preferencia aquellas más nuevas. La probabilidad de que una taza aparezca sobre la mesa está basada en el cálculo del error estándar=stdev/sqrt(k) donde k es el número de calificaciones que la sugerencia a la que pertence la taza ha recibido hasta el momento, y stdev representa la varianza de estas calificaciones. Esto asegura que, a lo largo del tiempo, la confianza o error-bar en las calificaciones estimadas sobre cada taza (sugerencia), tienda a ser igual para todas las tazas. Cada vez que termines de calificar un grupo de tazas, la mesa se actualizará mostrando un nuevo grupo de tazas. <br/><br/>
       </div>
 
   </div>
@@ -1238,8 +1299,10 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           You can continue grading more mugs and whenever you’re ready, just click on your mug (with the blue coaster) to enter an issue that you’d like to see on the next report card (version 2.0 will come out later this Spring).<br/><br/>
 
           <em>Q:</em> Why is my mug located at this position on the table?<br/>
@@ -1249,6 +1312,20 @@
           If you and another participant assigned very similar grades, your mugs will be close together.
           Mugs that are distant from yours belong to participants who graded very differently than you.
       </div>
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          Puede continuar con ley más tazas y cuando esté listo, simplemente haga clic en su taza (con la montaña azul) para entrar en un tema que le gustaría ver en la próxima boleta de calificaciones (versión 2.0 saldrá a finales de este primavera) .<br/><br/>
+
+          <em>P:</em> ¿Por qué mi taza encuentra en esta posición en la mesa?<br/>
+          <em>R:</em> The placement of each participant's mug is based on how he or she graded the first 6 issues.
+          Think of each issue as one dimension of a 6-dimensional space.
+          The grades you assign define a point in this space. We use dimensionality reduction (currently Principal Component Analysis) to project that space onto the table.
+          If you and another participant assigned very similar grades, your mugs will be close together.
+          Mugs that are distant from yours belong to participants who graded very differently than you.
+      </div>
+  
+
   </div>
 
   <div class='dialog-help-map3 dialog-style' style="z-index:999">
@@ -1269,11 +1346,20 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           You can either log out now and return anytime using the unique link we emailed you.
           Or you are welcome to continue grading participants’ suggestions for the next report card (version 2.0 will come out later this Spring).
       </div>
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          Usted puede cerrar la sesión actual y volver en cualquier momento utilizando el enlace único que le envié un correo electrónico. O le invitamos a continuar con ley de sugerencias de los participantes para la siguiente boleta de calificaciones (versión 2.0 saldrá a finales de este primavera).
+      </div>
+  
+
   </div>
 
 
@@ -1294,10 +1380,18 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           Please propose an issue you’d like to see on the next report card (version 2.0 will come out later this Spring).  Click Save when you’re done.
       </div>
+  
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          Por favor, proponer un tema que le gustaría ver en la próxima boleta de calificaciones (versión 2.0 saldrá a finales de este primavera). Haga clic en Guardar cuando haya terminado.
+      </div>
+
+
   </div>
 
   <div class='dialog-help-rate dialog-style' style="z-index:999">
@@ -1317,13 +1411,21 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+ 
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           <em>Q:</em> How do I grade a suggestion?<br/>
           <em>A:</em> After clicking a mug, that participant’s suggestion is displayed.
           You can skip to another one or mark this suggestion as irrelevant or inaccurate
           (click again to undo).  Otherwise, drag the two slider handles to assign grades.<br/><br/>
       </div>
+   
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          <em>P:</em> ¿Cómo puedo calificar una sugerencia?<br/>
+          <em>R:</em> Luego de presionar sobre alguna taza, se muestra la sugerencia introducida por el participante al que pertence la taza. A partir de aquí, usted puede calificar la sugerencia deslizando las barras para asignar su calificación. Por el contrario, puede evitar calificar la sugerencia (presionando sobre saltar), o bien puede marcarla como irrelevante o imprecisa (para deshacer una marca, presione de nuevo sobre la opción).<br/><br/>
+      </div>
+
   </div>
 
   <div class='dialog-help-continue dialog-style' style="z-index:999">
@@ -1344,11 +1446,22 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
+      
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
           <em>Q:</em> Why should I enter my email address?<br/>
           <em>A:</em> So we can send you a unique link to see the grades your suggested issue receives.
       </div>
+
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          <em>Q:</em> ¿Por qué debo introducir mi dirección de correo electrónico? <br/>
+          <em>A:</em> Así que le podemos enviar un enlace único para ver las calificaciones de su tema sugerido recibe.
+      </div>
+
+
   </div>
 
   <div class='dialog-help-logout dialog-style' style="z-index:999">
@@ -1368,10 +1481,17 @@
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
-          <div class="basic-header">Help</div>
-          To learn more about this project, its history, related projects, and the team that built it, visit <a href="http://californiareportcard.org/" target="_blank" style="color: #4e300f;">californiareportcard.org</a>.
+      
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
+          To learn more about this project, its history, related projects, and the team that built it, visit <a href="http://californiareportcard.org/" target="_blank" style="color: #ffffff;">californiareportcard.org</a>.<br/>
       </div>
+ 
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          Para conocer más sobre este proyecto, su historia, proyectos relacionados, y el equipo que lo construyó, visita <a href="http://californiareportcard.org/" target="_blank" style="color: #ffffff;">californiareportcard.org</a>.<br/>
+      </div>
+
   </div>
 
 <script>

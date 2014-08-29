@@ -385,7 +385,14 @@ $(document).ready(function() {
 
                     if (data.hasOwnProperty('success')) {
                         accounts.setAuthenticated();
-                        utils.showLoading("Loading", function() {
+                        
+                        var loadingMsg = "Loading...";
+                        console.log(window.spanish);
+                        if (window.spanish=='spanish') {
+                            loadingMsg = "Cargando...";
+                        }
+
+                        utils.showLoading(loadingMsg, function() {
                             
                             accounts.loginAfterRegister(loginData);
                             blooms.populateBlooms();
@@ -433,7 +440,15 @@ $(document).ready(function() {
                             try {
                             //TODO: why doesn't this come up under form_errors[zip_code]
                                 if (data['form_errors']['__all__'][0]) {
-                                    $("#zipcode-error").html(data['form_errors']['__all__'][0]);
+                                    
+                                    if (window.spanish=='english')
+                                    {
+                                        $("#zipcode-error").html(data['form_errors']['__all__'][0]);
+                                    } else {
+                                        $("#zipcode-error").html('El código postal debe tener 5 dígitos');
+                                    }
+                                    
+
                                     $("#zipcode-error").show();
                                 }
                             } catch(err) { }
@@ -465,15 +480,22 @@ $(document).ready(function() {
 
                     if (data.hasOwnProperty('success')) {
                         accounts.setAuthenticated();
-                        utils.showLoading("Loading...", function() {
+                        
+                        var loadingMsg = "Loading...";
+                        console.log(window.spanish);
+                        if (window.spanish=='spanish') {
+                            loadingMsg = "Cargando...";
+                        }
+
+                        utils.showLoading('hello', function() {
                             blooms.populateBlooms();
                             accounts.initLoggedInFeatures();
                             $('.top-bar').show();
-
                             setTimeout(function() { // d3 needs a little extra time to load
                                 $('.login').hide();
                             }, 1000);
                         });
+
                     } else {
                         console.log("Failed login attempt");
                         $('#login-error').text(data['form_errors'].__all__[0]);
