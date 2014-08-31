@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 import environ
 from opinion.opinion_core.models import *
@@ -149,33 +150,33 @@ def deleteOpinionSpaceStatement(stateNum):
 
 
 state = OpinionSpaceStatement.objects.get(statement_number=0)
-state.statement = "I feel like my household is adequately prepared for a major earthquake in California."
+state.spanish_statement = u"Aplicación de la Ley de Cuidado de Salud Asequible ('Obamacare')"
 state.short_version = "slider"
 state.save()
 
-# state = OpinionSpaceStatement.objects.get(statement_number=1)
-# state.statement = "I feel like California as a state is adequately prepared for a major earthquake in California."
-# state.short_version = "slider"
-# state.save()
+state = OpinionSpaceStatement.objects.get(statement_number=1)
+state.spanish_statement = "Calidad de la educación pública K-12"
+state.short_version = "slider"
+state.save()
 
-# state = OpinionSpaceStatement.objects.get(statement_number=2)
-# state.statement = "It is possible for people to prepare for a major earthquake."
-# state.short_version = "slider"
-# state.save()
+state = OpinionSpaceStatement.objects.get(statement_number=2)
+state.spanish_statement = "Asequibilidad de los colleges y universidades estatales"
+state.short_version = "slider"
+state.save()
 
-# state = OpinionSpaceStatement.objects.get(statement_number=3)
-# state.statement = "It is possible for the state government to prepare for a major earthquake."
-# state.short_version = "slider"
-# state.save()
+state = OpinionSpaceStatement.objects.get(statement_number=3)
+state.spanish_statement = "Acceso de inmigrantes indocumentados a servicios estatales"
+state.short_version = "slider"
+state.save()
 
-# state = OpinionSpaceStatement.objects.get(statement_number=4)
-# state.statement = "I believe preparation is an effective way to minimize risk of damage or injury during a major earthquake."
-# state.short_version = "slider"
-# state.save()
+state = OpinionSpaceStatement.objects.get(statement_number=4)
+state.spanish_statement = "Leyes y regulaciones con respecto al uso recreativo de la mariguana"
+state.short_version = "slider"
+state.save()
 
-# state = OpinionSpaceStatement.objects.get(statement_number=5)
-# state.statement = "I feel like California as a state is adequately prepared for a major earthquake in California."
-# state.save()
+state = OpinionSpaceStatement.objects.get(statement_number=5)
+state.spanish_statement = "Derecho al matrimonio para parejas del mismo sexo"
+state.save()
 
 
 # for num in range(5,12):
@@ -189,7 +190,7 @@ state.save()
 
 
 # Preparedness
-createOpinionSpaceStatement(6, "slider", state="If I had to evacuate my building immediately and did not have a working cell-phone, members of my household would know where to meet.")
+# createOpinionSpaceStatement(6, "slider", state="If I had to evacuate my building immediately and did not have a working cell-phone, members of my household would know where to meet.")
 # createOpinionSpaceStatement(9, "slider", state="If I had to evacuate my neighborhood immediately and did not have a working cell-phone, members of my household would know where to meet.")
 # createOpinionSpaceStatement(10, "slider", state="If I had to fully evacuate my city, members of my household would all know where to go.")
 # createOpinionSpaceStatement(11, "slider", state="How many of the following items do you have in your house?")

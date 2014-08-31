@@ -49,9 +49,15 @@ $(".slider-grade-bubble").on("click",function(e){
 
 	$(this).parent().children(".bubble-"+median.replace("+","p")).css("border","2px solid #66FFFF");
 	if (statement_id == 1){
-	$(".median-grade-"+statement_id).html("The median grade so far is highlighted in blue.");
-	$(".median-grade-"+statement_id).fadeIn(500);
-	$(".median-grade-"+statement_id).fadeOut(6000);
+		
+		if(window.spanish == "english") {
+			$(".median-grade-"+statement_id).html("The median grade so far is highlighted in blue.");
+		} else {
+			$(".median-grade-"+statement_id).html("La calificación media hasta <br/> el momento es destacada con bordes azules.");
+		}
+		
+		$(".median-grade-"+statement_id).fadeIn(500);
+		$(".median-grade-"+statement_id).fadeOut(4000);
 	}
 	
 	$(".skip-button-"+statement_id).hide();
@@ -78,6 +84,7 @@ $(".slider-grade-bubble").on("touchstart",function(e){
 	$(this).parent().children(".bubble-"+median.replace("+","p")).css("border","2px solid #66FFFF");
 	$(".median-grade-"+statement_id).html("Median grade so far: " + median);
 	$(".median-grade-"+statement_id).fadeIn(500);
+	$(".median-grade-"+statement_id).fadeOut(3000);
 	$(".skip-button-"+statement_id).hide();
 	}
 	catch(exception){}

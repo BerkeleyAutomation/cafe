@@ -245,8 +245,16 @@ var accounts = (function($, d3, console) {
                 else{
 
                  $("#email-error").show();
-                 $("#email-error").text(data['error']);
-                 console.log(data['error']);
+                
+
+                if (window.spanish == "spanish") {
+                    $("#email-error").text("Esta dirección de correo electrónico ya está en uso.");
+                    console.log("Esta dirección de correo electrónico ya está en uso.");
+                } else {
+                    $("#email-error").text(data['error']);
+                    console.log(data['error']);
+                }             
+
 
                 }
             }
@@ -484,7 +492,7 @@ $(document).ready(function() {
                         var loadingMsg = "Loading...";
                         console.log(window.spanish);
                         if (window.spanish=='spanish') {
-                            loadingMsg = "Cargando...";
+                            loadingMsg = "Cargando..."; // not real function
                         }
 
                         utils.showLoading('hello', function() {
