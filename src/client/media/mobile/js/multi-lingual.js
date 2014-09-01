@@ -22,6 +22,9 @@
                 $("#zipcode-error").html('Zipcode must be 5 digits');
                 $("#email-error").text("This email address is already in use.");
                 $(".median-grade-1").html("The median grade so far is highlighted in blue.");
+                $('#regzip').attr("placeholder","Zip Code");
+				$('#regemail').attr("placeholder","Email");
+                $(".skip-btn").text("Skip");
 				window.spanish = 'english';				
 			} else {
 				$('.english').hide();
@@ -32,6 +35,9 @@
                 $("#zipcode-error").html('El código postal debe tener 5 dígitos');
                 $("#email-error").text("Esta dirección de correo electrónico ya está en uso.");
 				$(".median-grade-1").html("La calificación media hasta el momento es destacada con bordes azules.");
+				$('#regzip').attr("placeholder","Código Postal");
+				$('#regemail').attr("placeholder","Correo Electrónico");
+                $(".skip-btn").text("Saltar");
 				window.spanish = 'spanish';				
 			}	
 		}

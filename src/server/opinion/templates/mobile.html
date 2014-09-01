@@ -405,10 +405,10 @@
               </div>
                   
               <div style="clear: both;"></div>
-              <a href="#" class="skip-button-{{statement.id}} skip-btn english" id="next-{{statement.id}}" style="color: #ffffff;font-size: 16px;font-weight: normal !important;position:relative;top: -40px;left: 100px;">Skip </a>
+              <a href="#" class="skip-button-{{statement.id}} skip-btn" id="next-{{statement.id}}" style="color: #ffffff;font-size: 16px;font-weight: normal !important;position:relative;top: -40px;left: 100px;">Skip </a>
 
-              <a href="#" class="skip-button-{{statement.id}} skip-btn spanish" id="next-{{statement.id}}" style="color: #ffffff;font-size: 16px;font-weight: normal !important;position:relative;top: -40px;left: 100px;"> Saltar </a>
-
+<!--               <a href="#" class="skip-button-{{statement.id}} skip-btn spanish" id="next-{{statement.id}}" style="color: #ffffff;font-size: 16px;font-weight: normal !important;position:relative;top: -40px;left: 100px; display:none"> Saltar </a>
+ -->
             <a href='#' class = 'landing-translate-btn english' style='position:absolute; top:70px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>  
                   español
             </a>
@@ -891,6 +891,7 @@
             </div>
             
             <div class="home-btn-wrapper" style="width:55%;display:inline-block; text-align: right;">
+
                 <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png"> 
                 
                 <img width="20px;" class='home-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_home_bttn.png"> 
@@ -900,7 +901,10 @@
                 <img width="20px;" class='logout-btn' src="{{url_root}}/media/mobile/img/cafe/CRC_logout_bttn.png">
             </div>
 
+ 
+
          </div> 
+
 
     <div class='dialog-text-style'>
         <!--<div class='dialog-text-style default-left-padding'>
@@ -941,10 +945,15 @@
 
  <div class='dialog-email dialog-style'>
        <div class="home-btn-dialog-box">
-            <div class="home-btn-title" style="width:40%; text-shadow: none; position: relative; left: 15px;">
+            
+            <div class="home-btn-title english" style="width:40%; text-shadow: none; position: relative; left: 15px;">
                 Thanks!
             </div>
             
+            <div class="home-btn-title spanish" style="width:40%; text-shadow: none; position: relative; left: 15px;">
+                Gracias!
+            </div>
+
             <div class="home-btn-wrapper" style="width:55%;display:inline-block; text-align: right;">
                 <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png"> 
                 
@@ -957,14 +966,32 @@
 
          </div> 
 
-         <div class='dialog-text-style default-left-padding'>
+         <div class='dialog-text-style default-left-padding english' style="position:relative; top:30px;">
             Thank you!  Logout now or grade more mugs.
             <center>
-            <div class="standard-btn-div" style="max-width: 250px !important;">
+            <div class="standard-btn-div" style="max-width: 250px !important; position:relative; top:30px;">
               <div class='button-div dialog-email-ready' >Continue</div>
             </div>
           </center>
          </div>
+
+         <div class='dialog-text-style default-left-padding spanish' style="position:relative; top:30px;">
+            Gracias!, ahora puede cerrar sesión o calificar más tazas (sugerencias).
+            <center>
+            <div class="standard-btn-div" style="max-width: 250px !important; position:relative; top:30px;">
+              <div class='button-div dialog-email-ready' > Continuar</div>
+            </div>
+          </center>
+         </div>
+
+
+            <a href='#' class = 'landing-translate-btn english' style='position:absolute; top:65px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>  
+                  español
+            </a>
+
+            <a href='#' class = 'landing-translate-btn spanish' style='position:absolute; top:65px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>
+                  english
+            </a>
   </div>
 
   <div class='dialog-avggrade dialog-style'>
