@@ -271,10 +271,12 @@
       <div class="home-btn-dialog-box landing-navigation" style="display: none;">
           <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png">
       </div>
-      
+
       <br/>
       <br/>
       <br/>
+
+      <img width="20px;" class='help-btn-dialog' style='position:absolute; top:17px; right:15px;' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
 
       <center>
 
@@ -1014,17 +1016,94 @@
 
   <div class='dialog-about dialog-style' style="z-index:999">
       <div class="home-btn-dialog-box">
+
+           <a href='#' class = 'landing-translate-btn english' style='position:absolute; top:40px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>  
+                  español
+            </a>
+
+            <a href='#' class = 'landing-translate-btn spanish' style='position:absolute; top:40px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>
+                  english
+            </a>
+
           <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png">
           
           <img width="20px;" class='home-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_home_bttn.png">
           
           <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
       </div>
-      <div class='dialog-text-style-noflow small-left-padding'>
+      
+      <div class='dialog-text-style-noflow small-left-padding english'>
           <div class="basic-header">{{client_settings.ABOUT_PAGE_HEADER}}</div>
 	  <center>{{num_users}} participants so far.</center><br/>
-	  {% autoescape off %}{{client_settings.ABOUT_PAGE_TEXT }}{% endautoescape %}
+	  
+    {% autoescape off %}
+
+    <!-- {{client_settings.ABOUT_PAGE_TEXT }} -->
+
+      <em> Overview </em> <br/>
+      The CRC is an online platform developed by the CITRIS Data and Democracy Initiative at UC Berkeley and Lt. Governor Gavin Newsom that explores how smartphones and networks can enhance communication between the public and government leaders. The CRC allows visitors to grade issues facing California and to suggest issues for future report cards. The project aims to increase public engagement and to help leaders at all levels stay informed about the changing opinions and priorities of their constituents.
+
+      It works on all screens and is optimized for mobile phones held vertically. 
+      Anyone can participate by taking a few minutes to assign grades to the State of California on issues such as: Healthcare, Education, Marriage Equality, Immigrant Rights, and Marijuana Decriminalization. Participants are also invited to enter an online 'cafe' to propose issues that they'd like to see included in the next report card (version 2.0 will come out later this Spring). <br/> <br/>
+
+      <em> Q: </em> What’s the motivation for the CRC? <br/>
+      <em> A: </em> We’re exploring new models for exchange of information and engagement with political issues. We don’t claim the CRC model is the answer: it’s one new metaphor and mode of collecting information. Will the CRC encourage people to think about public issues and how public opinion gets represented? We’re curious to see how people respond, how patterns of responses change over time, and if the grading will be a catalyst for the discussion, where participants propose new issues for the next report card and evaluate the suggestions of other participants. We’ll keep working to develop new versions and models based on the responses and data. <br/> <br/>
+
+
+      <em> Privacy </em> <br/>
+      Comments and suggestions will be scanned to omit identifiable information. We respect your privacy and will not share your email address with third parties. <br/> <br/>
+
+      <em> Statistical Significance </em> <br/>
+      The CRC differs from randomized telephone polls and surveys. Participation is self-selective and accessible so far only to English speakers with access to a smart phone or web browser (we are working on extending the interface to Spanish speakers and persons with disabilities). After you enter each grade, the Median Grade based on input from all previous participants is revealed. This is intended to provide instant feedback in contrast to traditional polls and surveys. We realize this may have a biasing effect: some may adjust their grade to be closer to the average resulting in a form of regression toward the mean. We will include details on the number of such adjustments and the before and after values in the open dataset. We will also present the grade data as histograms to convey levels of consensus and geographically to convey differences by region. <br/> <br/>
+      
+      A modo de presentar los niveles de consenso presentaremos a través de histogramas los datos de las calificaciones, además, demostraremos las diferencias de opinión en las distintas regiones por medio de un mapa geográfico. <br/> <br/>
+
+      <em> More </em> <br/>
+      Please see the CRC website for contact info, details about the project history, stats to date, related links, and to download anonymized data when it is available: <br/> <br/>
+
+
+      <em> California Report Card </em> <br/>
+      <a href='http://californiareportcard.org'> http://californiareportcard.org </a>
+
+
+
+    {% endautoescape %}
       </div>
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header"> Acerca de CRC  </div>
+    <center>{{num_users}} participants so far.</center><br/>
+    {% autoescape off %}
+
+      <em> Información General </em> <br/>
+      CRC es una plataforma en línea desarrollada por la iniciativa de Datos y Democracia del centro de investigación CITRIS en la UC Berkeley y el vicegobernador de California Gavin Newson. La misma explora cómo los smartphones y las redes pueden mejorar la comunicación entre los ciudadanos y los responsable del gobierno. CRC permite a sus usuarios calificar al estado de California en temas de actualidad así como también posibilita sugerir nuevos temas a ser incluidos en futuras versiones de la aplicación. El proyecto pretende incrementar la participación ciudadana y ayudar a que los líderes gubernamentales, de todos los niveles, estén permanentemente informados acerca de la opinión y prioridades de sus electores. <br/>
+
+      CRC funciona en cualquier pantalla, sin embargo está optimizado para operar en pantallas de teléfonos móviles en posición vertical.
+      Cualquier persona puede participar tomándose unos minutos para asignar calificaciones al estado de California sobre temas como: salud, educación, matrimonio igualitario, derechos de los inmigrantes, y despenalización de la mariguana. Además, los participantes son invitados a “entrar” a un “café en línea” donde pueden proponer temas a ser incluidos en la próxima versión de la aplicación (versión 2.0 que estará disponible a finales de primavera). <br/> <br/>
+
+      <em> P: </em> ¿Cuál es la motivación para crear CRC? <br/>
+      <em> R: </em> Estamos explorando nuevos modelos de intercambio de información y compromiso ciudadano en cuestiones políticas y de interés general. No pretendemos que el modelo propuesto por CRC sea la única respuesta; somos consientes de que es una novedosa metáfora y una nueva manera de recolectar información de la ciudadanía. ¿Estimulará CRC a pensar sobre asuntos de interés público y a reflexionar sobre cómo la opinión pública puede volverse representativa? Queremos ver cómo las personas responden a los temas planteados, como los patrones de respuestas cambian a lo largo del tiempo, y si las calificaciones pueden actuar como catalizadores de discusiones, donde los participantes proponen nuevos temas y al mismo tiempo evalúan las sugerencias de otros. Seguiremos trabajando en desarrollo de nuevas versiones y modelos basados en las respuestas y datos obtenidos. <br/> <br/>
+
+
+      <em> Privacidad </em> <br/>
+      Cualquier información de identificación personal será removida de los comentarios y sugerencias. Respetaremos tu privacidad y no compartiremos con terceros tu dirección de correo electrónico. <br/> <br/>
+
+      <em> Significancia Estadística </em> <br/>
+      A diferencia de las encuestas y los sondeos telefónicos aleatorios, aquí, la participación es autoseleccionada y disponible, hasta el momento, para angloparlantes con acceso a un smartphone o a un navegador web (estamos trabajando en una extensión para el idioma Español y en hacerla accesible para personas con discapacidad). <br/> <br/>
+      
+      A diferencia de las encuestas y sondeos tradicionales, en CRC los usuarios obtienen una retroalimentación instantánea de su opinión ya que la calificación media es presentada luego de introducir calificaciones. Somos conscientes que esta funcionalidad podría sesgar las calificaciones ya que algunos participantes podrían estar tentados a ajustar su calificación a la media produciendo una suerte de regresión hacia la media. <br/> <br/>
+      
+      A modo de presentar los niveles de consenso presentaremos a través de histogramas los datos de las calificaciones, además, demostraremos las diferencias de opinión en las distintas regiones por medio de un mapa geográfico. <br/> <br/>
+
+      <em> Más </em> <br/>
+      Para información de contacto favor consulte el sitio web de CRC. Para detalles sobre la historia del proyecto, estadísticas a la fecha, enlaces relacionados, y descarga de datos anónimos favor visite: <br/> <br/>
+
+
+      <em> California Report Card </em> <br/>
+      <a href='http://californiareportcard.org'> http://californiareportcard.org </a>
+    {% endautoescape %}
+      </div>
+
   </div>
 
   <div class='dialog-help-alt dialog-style' style="z-index:999">
@@ -1177,6 +1256,38 @@
 
       </div>
 </div>
+
+  
+  <div class='dialog-help-landing dialog-style' style="z-index:999">
+      <div class="home-btn-dialog-box">
+           <a href='#' class = 'landing-translate-btn english' style='position:absolute; top:40px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>  
+                  español
+            </a>
+
+            <a href='#' class = 'landing-translate-btn spanish' style='position:absolute; top:40px; left:10px; color: #ffffff;font-size: 16px;font-weight: normal !important;'>
+                  english
+            </a>
+
+          <img width="20px;" class='back-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_back_bttn.png">
+          
+          <img width="20px;" class='home-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_home_bttn.png">
+          
+          <img width="20px;" class='help-btn-dialog' src="{{url_root}}/media/mobile/img/cafe/CRC_help_bttn.png">
+      </div>
+
+      <div class='dialog-text-style-noflow small-left-padding english'>
+          <div class="basic-header english">Help</div>
+          Hello
+      </div>
+  
+
+      <div class='dialog-text-style-noflow small-left-padding spanish'>
+          <div class="basic-header spanish">Ayuda</div>
+          Ola
+      </div>
+
+  </div>
+
 
 
   <div class='dialog-help-median dialog-style' style="z-index:999">

@@ -295,6 +295,7 @@ var accounts = (function($, d3, console) {
         $('.dialog-email').hide();
         $('.my-comment').hide();
         $('.dialog-help-alt').hide();
+        $('.dialog-help-landing').hide();
         $('.dialog-help-grade').hide();
         $('.dialog-help-median').hide();
         $('.dialog-help-zipcode').hide();
