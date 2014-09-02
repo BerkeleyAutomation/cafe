@@ -25,6 +25,7 @@
                 $('#regzip').attr("placeholder","Zip Code");
 				$('#regemail').attr("placeholder","Email");
                 $(".skip-btn").text("Skip");
+//                $('#message').html('The California Report Card is optimized for mobile screen sizes.</br> Learn more about the project at <b><a href="http://californiareportcard.org">http://californiareportcard.org</a></b>.<br/>');
 				window.spanish = 'english';				
 			} else {
 				$('.english').hide();
@@ -38,6 +39,7 @@
 				$('#regzip').attr("placeholder","Código Postal");
 				$('#regemail').attr("placeholder","Correo Electrónico");
                 $(".skip-btn").text("Saltar");
+//                $('#message').html('El Reporte de California está optimizado para los tamaños de pantalla móvil. </br> Obtenga más información sobre el proyecto en <b><a href="http://californiareportcard.org">http://californiareportcard.org</a></b>.<br/>');
 				window.spanish = 'spanish';				
 			}	
 		}

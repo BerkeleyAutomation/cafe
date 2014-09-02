@@ -9,6 +9,8 @@
 		<script type='text/javascript' src='{{url_root}}/media/mobile/jquery-mobile/jquery-1.10.2.min.js'></script>
 		<script type='text/javascript' src='{{url_root}}/media/js/jquery-ui-1.10.4.custom.min.js'></script>
 		<script type='text/javascript' src='{{url_root}}/media/mobile/js/home.js'></script>
+		<script type='text/javascript' src='{{url_root}}/media/mobile/js/multi-lingual.js'></script>
+
 	<style>
 	  * {
 	  background-color: #FFFFFF;  /* ; #04376C; */
@@ -21,12 +23,12 @@
 	  zoom: 1.50;
 	  height: 270px;
 	  width: 210px;
--moz-transform: scale(1.50);
--moz-transform-origin: 0 0;
--o-transform: scale(1.50);
--o-transform-origin: 0 0;
--webkit-transform: scale(1.50);
--webkit-transform-origin: 0 0;
+		-moz-transform: scale(1.50);
+		-moz-transform-origin: 0 0;
+		-o-transform: scale(1.50);
+		-o-transform-origin: 0 0;
+		-webkit-transform: scale(1.50);
+		-webkit-transform-origin: 0 0;
 	  }
 
 	  #message {
@@ -35,7 +37,7 @@
 	  font-size: 24px;
 	  padding-bottom: 10px;
 	  }
-	  </style>
+	 </style>
 
 	  <!-- Social media stuff -->
 	  <meta property="og:title" content="California Report Card"/>
@@ -48,21 +50,21 @@
 	
         <title>California Report Card</title>
     </head>
+    
     <body>
-	<center>
-	  <div id="message">
-	    	The California Report Card is optimized for mobile screen sizes.</br>
-	    	Learn more about the project at <b><a href="http://californiareportcard.org">http://californiareportcard.org</a></b>.<br/>
-   	   </div>
+		<center>
+		  <div id="message" class='app-text'>
+		    	The California Report Card is optimized for mobile screen sizes.</br>
+		    	Learn more about the project at <b><a href="http://californiareportcard.org">http://californiareportcard.org</a></b>.<br/>
+	   	   </div>
 
-   	   <div id="message" class ='spanish'>
-	    	El Reporte de California está optimizado para los tamaños de pantalla móvil. </br>
-	    	Obtenga más información sobre el proyecto en <b><a href="http://californiareportcard.org">http://californiareportcard.org</a></b>.<br/>
-   	   </div>
-	  
-	  <iframe id="frame" src="{{ url_root }}/mobile/?refer={{refer}}">
-	  </iframe>
+	   	   <div id='message' class='app-text'>
+	   	   		El Reporte de California está optimizado para los tamaños de pantalla móvil. </br> Obtenga más información sobre el proyecto en <b><a href="http://californiareportcard.org">http://californiareportcard.org</a></b>.<br/>
+	   	   	</div>
+		  
+		  <iframe id="frame" src="{{ url_root }}/mobile/?refer={{refer}}">
+		  </iframe>
 
-	</center>
+		</center>
     </body>
 </html>
