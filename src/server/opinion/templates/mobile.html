@@ -39,7 +39,7 @@
     <link rel='stylesheet' type='text/css' href='{{url_root}}/media/mobile/css/animate.css' />
 
 
-    <!-- JavaScript -->
+    <!-- JavaScript -->    
     <script type='text/javascript' src='{{url_root}}/media/mobile/jquery-mobile/jquery-1.10.2.min.js'></script>
     <script type='text/javascript' src='{{url_root}}/media/js/jquery-ui-1.10.4.custom.min.js'></script>
     <script src="{{url_root}}/media/mobile/js/jquery.nouislider.min.js"></script>
@@ -64,6 +64,8 @@
     <!-- <script type="text/javascript" src="http://www.google.com/jsapi"></script> -->
     <script type='text/javascript' src='{{url_root}}/media/mobile/js/analytics-trk.js'></script>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+   <script src='{{url_root}}/media/mobile/js/jquery.counterup.min.js'></script>
 
     <!--JavaScript that needs to be run on init-->
     <script type='text/javascript'>
@@ -122,6 +124,11 @@
      };
 
      jQuery(document).ready(function(){
+        $('.counter').counterUp({
+            delay: 30,
+            time: 1500,
+        });
+
        for (var i = 0; i < window.num_sliders; i++) {
    window.sliders[i] = 4.5;
    window.skipped[i] = false;
@@ -304,13 +311,15 @@
           </div> -->
 
           <div class="landing-img-txt responsive-body">  
-            <span class="english">
-<!-- THIS IS A TEST. </br>THIS IS ONLY A TEST.</br></br> -->
+<!--             <span class="english">
+            <span class="english">Join <strong class="counter">{{num_users_format}}</strong> others to amplify California's collective intelligence.</span>
+            <span class="spanish">Únete a los <strong class="counter">{{num_users_format}}</strong> otros para amplificar la inteligencia colectiva de California</span>
+          </div> -->
 
 	      How prepared are you?  </br></br>
 	      Imagine that a major earthquake has just occurred. Cell phone, Internet, water, and electricity services are no longer functioning. Many of the buildings around you have severe structural damage. Traffic is gridlocked, debris has made it difficult to move from your current location, and public transportation is unavailable.</br></br>
 
-Take 2 minutes to see how prepared you are, and join the <strong>{{num_users}}</strong> others who have visited so far in an online discussion about preparedness.</br>
+Take 2 minutes to see how prepared you are, and join the <strong class="counter">{{num_users_format}}</strong> others who have visited so far in an online discussion about preparedness.</br>
 </span>
 
           <span class="spanish">Únete a los <strong>{{num_users}}</strong> que ya contribuyeron a la inteligencia colectiva de California.</span>
