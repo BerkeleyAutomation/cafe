@@ -141,6 +141,8 @@ def mobile(request,entry_code=None):
                        'num_users': num_users,
                        'encouragement_text': random.randint(0, 1),
                                              'statement_labels': json.dumps(statement_labels),
+                       'num_users_format': format (int(num_users), ',d'),
+                       'statement_labels': json.dumps(statement_labels),
                        'medians': json.dumps(medians)}))
 
 def confirmation_mail(request):
