@@ -43,7 +43,7 @@
 # To create a script:
 
   - copy an example from `scripts/` that sounds similar
-  - from the `opinion/` directory, run `python scripts/script.py`
+  - To run a script when using sqlite you must be in the `opinion/` directory. From the `opinion/` directory, run `python scripts/script.py`
 
 # To create a database dump
 
