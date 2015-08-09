@@ -22,3 +22,6 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += settings.STATIC_MEDIA_PATTERN
+
+if getattr(settings, 'PHONE_MODULE', False):
+    urlpatterns += patterns('', (r'^phone/', include('phone.urls')))
