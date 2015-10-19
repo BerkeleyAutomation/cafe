@@ -15,20 +15,18 @@ statement_text = [
     "marriage rights for same-sex partners",
 ]
 
+def url(fname):
+    return "http://californiareportcard.org/uganda2/media/audio/" + fname
+
 def get_comment():
     all_comments = DiscussionComment.objects.filter(is_current=True, blacklisted=False)
-    return random.choice(all_comments).comment
+    return random.choice(all_comments)
 
 def begin(request):
     resp = twilio.twiml.Response()
 
-    resp.say("Welcome to the California Report Card, a project by the "
-             "Connected Communities Initiative at UC Berkeley, "
-             "and the Office of Lieutenant Governor Gavin Newsom.")
+    resp.say("Welcome to the reproductive health survey", voice='alice')
     resp.pause(length=1)
-    resp.say("By filling out the report card, you can join twenty thousand "
-             "other Californians to help identify top priorities for "
-             "the California State Budget")
 
     resp.redirect(reverse(statement, args=[0]))
     return HttpResponse(str(resp))
@@ -39,15 +37,15 @@ def statement(request, num):
 
     resp.pause(length=1)
     if num == 0:
-        resp.say("To submit your grades, press the number keys on your phone. "
-                 "0 is the lowest possible grade, and 9 is the highest grade. ")
+        resp.play(url("listen-statement-instructions.wav"))
         resp.pause(length=1)
     else:
         pass
         # TODO: save Digits param for previous rating
 
     if num == OpinionSpaceStatement.objects.filter().count():
-        resp.redirect(reverse(demographic))
+        # resp.redirect(reverse(demographic))
+        resp.redirect(reverse(peer_rate, args=[0]))
     else:
         intros = ["First", "Next", "Now", "", "", "Finally"]
 
@@ -59,7 +57,8 @@ def statement(request, num):
                 'of California' if num <= 2 else '',
                 statement_text[num],
             )
-            g.say(ask_grade)
+            # g.say(ask_grade)
+            g.play(url('statement-{}.wav'.format(num+1)))
 
     return HttpResponse(str(resp))
 
@@ -78,26 +77,23 @@ def peer_rate(request, num):
     num = int(num)
 
     if num == 0:
-        resp.say("Before you tell us what you think should be included in "
-                 "the next report card, please rate suggestions from "
-                 "two other participants....")
+        resp.play(url('leaves-instructions.wav'))
         with resp.gather(numDigits=1, action=reverse(peer_rate, args=[num+1]),
                          finishOnKey="any digit", timeout=60) as g:
-            g.say("Rate this idea...")
+            g.say("Rate this idea...", voice='alice')
             g.pause(length=2)
-            g.say(get_comment())
+            g.play(url('{}.wav').format(get_comment().id))
     else:
         # TODO: save Digits param for previous rating
         pass
 
     if num == 1:
-        resp.say("You're halfway there! Just rate one more suggestion "
-                 "and then you can tell us yours")
+        resp.say("Just rate one more suggestion and then you can tell us yours", voice='alice')
         with resp.gather(numDigits=1, action=reverse(peer_rate, args=[num+1]),
                          finishOnKey="any digit", timeout=60) as g:
-            g.say("The suggestion is...")
+            g.say("The suggestion is...", voice='alice')
             g.pause(length=2)
-            g.say(get_comment())
+            g.play(url('{}.wav').format(get_comment().id))
 
     if num >= 2:
         resp.redirect(reverse(record_comment))
@@ -106,8 +102,7 @@ def peer_rate(request, num):
 
 def record_comment(request):
     resp = twilio.twiml.Response()
-    resp.say("Now, record your suggestion for the next report card after "
-             "the tone. Press any key when you're finished.")
+    resp.say("Now, record your suggestion after the tone. Press any key when you're finished.", voice='alice')
     resp.pause(length=2)
     resp.record(action=reverse(finish), timeout=15)
     return HttpResponse(str(resp))
@@ -115,8 +110,7 @@ def record_comment(request):
 def finish(request):
     # TODO: save Recording param for previous rating
     resp = twilio.twiml.Response()
-    resp.say("Thank you for completing the California Report Card. Please "
-             "share this telephone number with other Californians "
-             "and call back at anytime to re-grade the state. Good bye!")
+    resp.say("Thank you for completing the reproductive health survey. Please "
+             "encourage other women to take this survey too. Good bye! ", voice='alice')
     return HttpResponse(str(resp))
 
