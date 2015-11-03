@@ -60,7 +60,7 @@ $(window).ready(function() {
     var input = audio_context.createMediaStreamSource(stream);
     __log('Media stream created.');
 
-    recorder = new Recorder(input);
+    recorder = new Recorder(input, {numChannels:1});
     __log('Recorder initialised.');
   }
 
