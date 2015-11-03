@@ -1,0 +1,50 @@
+[
+    {
+        "audio": "welcome.wav",
+        "description": "Welcome to the reproductive health survey"
+    },
+    {
+        "audio": "listen-statement-instructions.wav",
+        "description": "You will now hear some statements. After you hear each statement, press a number on your telephone to state how much you agree with the statement. 0 means you do not agree at all. 9 means you agree strongly."
+    },
+    {
+        "audio": "statement-1.wav",
+        "description": "I am able to decide how household money is spent."
+    },
+    {
+        "audio": "statement-2.wav",
+        "description": "My husband/partner supports the use of family planning."
+    },
+    {
+        "audio": "statement-3.wav",
+        "description": "I openly discuss family planning with my husband."
+    },
+    {
+        "audio": "statement-4.wav",
+        "description": "I am afraid that using an oral contraceptive pill will cause me to never have children in the future even after I stop taking the oral contraceptive pill."
+    },
+    {
+        "audio": "statement-5.wav",
+        "description": "I am afraid that a coil (Intrauterine Device) will cause me to never have children in the future even after the coil is removed."
+    },
+    {
+        "audio": "statement-6.wav",
+        "description": "I am afraid that receiving the birth control shot will cause me to never have children in the future."
+    },
+    {
+        "audio": "listen-comment-instructions.wav",
+        "description": "Now you will hear suggestions from other women on how to improve the center. Again, after you hear each statement, press a number on your telephone to state how much you agree"
+    },
+    {
+        "audio": "listen-comment-instructions2.wav",
+        "description": "Here is another statement from a women."
+    },
+    {
+        "audio": "leave-comment-instructions.wav",
+        "description": "We would like to hear your suggestion. In what specific way can the nutrition centers be improved and why? Say your answer and then press a button on the phone."
+    },
+    {
+        "audio": "goodbye.wav",
+        "description": "Thank you for completing the reproductive health survey. Please encourage other women to take this survey too. Good bye!"
+    }
+]

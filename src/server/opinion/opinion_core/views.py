@@ -2838,6 +2838,19 @@ def get_audio(request):
                                     'file_groups' : {'Comments': comments, 'Statements': statements},
         }))
 
+@admin_required
+def get_phone(request):
+    phone_json_file = glob.glob(MEDIA_ROOT + "/audio/phone.json")
+    phone_json = json.loads(open(phone_json_file[0]).read())
+
+    print phone_json
+
+    return render_to_response('phone.html',
+                                  context_instance = RequestContext(request, {
+                                    'url_root' : settings.URL_ROOT,
+                                    'files' : phone_json,
+        }))
+
 @auth_required
 def os_save_audio(request):
     """
