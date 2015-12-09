@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse
 
+from opinion.includes.logutils import *
 from opinion.opinion_core.models import *
 
 import twilio.twiml
@@ -22,7 +23,18 @@ def get_comment():
     all_comments = DiscussionComment.objects.filter(is_current=True, blacklisted=False)
     return random.choice(all_comments)
 
+def find_username_from_CallSid (callSID): #TODO: add error handling
+    truncated_callSid = callSID[:15]
+    username = 'p' + truncated_callSid + '@example.com'
+    return username
+
 def begin(request):
+    username = find_username_from_CallSid(request.POST.get("CallSid", ""))
+    random_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(10))
+    user = User.objects.create_user(username=username, password=random_password)
+    user.save()
+    # Is this sufficient to save the user?
+
     resp = twilio.twiml.Response()
 
     resp.say("Welcome to the reproductive health survey", voice='alice')
@@ -40,7 +52,9 @@ def statement(request, num):
         resp.play(url("listen-statement-instructions.wav"))
         resp.pause(length=1)
     else:
-        pass
+        username = find_username_from_CallSid(request.POST.get("CallSid", ""))
+        user = User.objects.filter(username = username)
+        
         # TODO: save Digits param for previous rating
 
     if num == OpinionSpaceStatement.objects.filter().count():
@@ -109,8 +123,43 @@ def record_comment(request):
 
 def finish(request):
     # TODO: save Recording param for previous rating
+    audio_recording = requests.get(request.RecordingUrl) # This is a wav file
+    # os_id is not set though :(
+    # os_save_comment code
+    username = find_username_from_CallSid(request.POST.get("CallSid", ""))
+    user = User.objects.filter(username = username)
+    os_id = 1
+    disc_stmt = DiscussionStatement.objects.filter(opinion_space = os_id, is_current = True)[0]
+
+    #make a dummy comment
+    comment = DiscussionComment(user = user,
+                            opinion_space_id = os_id,
+                            discussion_statement = disc_stmt,
+                            comment = "dummy comment",
+                            query_weight = -1,
+                            is_current = True)
+    comment.save()
+    fname = str(comment.id)
+    save_audio(audio_recording, fname) # Does this work? Does this match the other function? What was data before?
+    return json_result({'success': True,})    
+ 
+
+    #save the audio recording
+
     resp = twilio.twiml.Response()
     resp.say("Thank you for completing the reproductive health survey. Please "
              "encourage other women to take this survey too. Good bye! ", voice='alice')
     return HttpResponse(str(resp))
+
+def save_audio(data, fname_prefix):
+    from django.core.files.storage import default_storage
+    from django.core.files.base import ContentFile
+    if fname_prefix.endswith(".wav"):
+        fname = "audio/%s" % fname_prefix
+    else:
+        fname = "audio/%s.wav" % fname_prefix
+    if default_storage.exists(fname):
+        os.rename(settings.MEDIA_ROOT + fname,
+                  settings.MEDIA_ROOT + default_storage.get_available_name(fname))
+    path = default_storage.save(fname, ContentFile(data.read())) 
 
