@@ -23,7 +23,8 @@ html {
   -webkit-font-smoothing: antialiased;
   font-family: DroidSans, sans-serif;
   font-weight: 200;
-  background-color: #e2decf !important;
+  background-image:url('../img/cafe/cafe_bg.jpg');
+  background-size: cover;
 }
 
 a {
@@ -274,6 +275,30 @@ table.pretty caption {
 	display: none;
 	color: #442b10;
 	background-color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 767px){
+.responsive-body{
+                font-size: 15px !important;
+                line-height: 16px !important;
+		max-width: 90% !important;
+        }
+
+.statement-style {
+        font-family: DroidSans-Bold, sans-serif;
+        padding-left: 20px !important;
+        padding-right: 35px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 90%;
+        max-width: 620px;
+        text-align: left;
+        font-size: 17px;
+        text-shadow: 1px 1px 1px #F7F4DD;
+        font-weight: bolder;
+        color: #442b10;
+}
+
 }
 
 @media (min-width: 768px){
@@ -1276,7 +1301,7 @@ padding-right: 7px;
 
 .statement-style {
 	font-family: DroidSans-Bold, sans-serif;
-	padding-left: 20px;
+	padding-left: 35px;
 	padding-right: 35px; 
 	padding-top: 5px; 
 	padding-bottom: 5px; 

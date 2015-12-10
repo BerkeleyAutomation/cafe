@@ -621,7 +621,7 @@ Take 2 minutes to see how prepared you are, and join the <strong>{{num_users}}</
          {
           var skipOffset = 0
           if (i == 10)
-            skipOffset = 7
+            skipOffset = 5
 
      context.moveTo(i*15+6+skipOffset, 45);
      context.lineTo(i*15+6+skipOffset, Math.min(45 - data[i]/max_of_array*38,43));
@@ -677,7 +677,7 @@ Take 2 minutes to see how prepared you are, and join the <strong>{{num_users}}</
 
     <center>     
             <div style="margin-left: 15px;">
-              <canvas id="sparkLineCanvasDetail{{k.id}}" width="315" height="105" style="background-color: rgba(255,255,255,0.4)"></canvas>
+              <canvas id="sparkLineCanvasDetail{{k.id}}" width="280" height="105" style="background-color: rgba(255,255,255,0.4)"></canvas>
               <script>
          var canvas = document.getElementById('sparkLineCanvasDetail{{k.id}}');
          var context = canvas.getContext('2d');
@@ -695,10 +695,10 @@ Take 2 minutes to see how prepared you are, and join the <strong>{{num_users}}</
          {
           var skipOffset = 0
           if (i == 10)
-            skipOffset = 7
+            skipOffset = 5
 
-          context.moveTo(i*28+10+skipOffset, 90);
-          context.lineTo(i*28+10+skipOffset, Math.min(90 - data[i]/max_of_array*76, 86));
+          context.moveTo(i*25+10+skipOffset, 90);
+          context.lineTo(i*25+10+skipOffset, Math.min(90 - data[i]/max_of_array*76, 86));
           context.stroke(); 
          }
 
@@ -882,7 +882,7 @@ Take 2 minutes to see how prepared you are, and join the <strong>{{num_users}}</
 
       </div>
 
-      <div class="map-frame">
+      <div class="map-frame" style="position: fixed;">
          <div class="top-bar">
         <center>
           <div class='menubar'>
@@ -908,7 +908,7 @@ Take 2 minutes to see how prepared you are, and join the <strong>{{num_users}}</
 
       <div style="text-align: right; position: absolute; right: 0;"><a href="#" class="map-info" style="color:#442b10;position:relative;top:5px;" onclick="accounts.hideAll();$('.dialog-help-map1').show();window.cur_state = 'faq';window.prev_state = 'map';"><img width="30px" src="{{url_root}}/media/mobile/img/cafe/info_button.png"></a></div>
 
-      <div id='d3' class="d3-canvas"></div>
+      <div id='d3' class="d3-canvas" style="position: fixed;"></div>
     </center>
   </div>
  
@@ -935,7 +935,7 @@ Take 2 minutes to see how prepared you are, and join the <strong>{{num_users}}</
 
 <br></br>
       <span class="english"><a href="http://twitter.com/intent/tweet?text=How+prepared+are+you+for+a+major+%23quake%3F+Try+QuakeCAFE+developed+by+%40GavinNewsom+%26+%40ken_goldberg+http%3A%2F%2Fquakecafe.org+%40citrisnews" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/twitter-button.png" width="102px"></a>
-      <a href="https://www.facebook.com/dialog/feed?app_id=694165360698061&link=http%3A%2F%2Fquakecafe.org&picture=http%3A%2F%2Fcaliforniareportcard.org%2Fcrc%2Fwp-content%2Fuploads%2FQuakeCAFE_How-Prepared-Are-You_Version1_SM-01.jpg&name=QuakeCAFE&caption=%20&description=How%20prepared%20are%20you%20for%20a%20major%20quake%3F%20Try%20QuakeCAFE%20developed%20by%20%40Cal%20%40GavinNewsom%20%26%20%40Ken_Goldberg%20http%3A%2F%2Fquakecafe.&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/facebook-button.png" width="102px"></a><br/>
+      <a href="https://www.facebook.com/dialog/feed?app_id=694165360698061&link=http%3A%2F%2Fquakecafe.org&picture=http%3A%2F%2Fcaliforniareportcard.org%2Fcrc%2Fwp-content%2Fuploads%2FQuakeCAFE_How-Prepared-Are-You_Version1_SM-01.jpg&name=QuakeCAFE&caption=%20&description=How%20prepared%20are%20you%20for%20a%20major%20quake%3F%20Try%20QuakeCAFE%20http%3A%2F%2Fquakecafe.org%20developed%20by%20%40Cal%20%40GavinNewsom%20%26%20%40ken_goldberg&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/facebook-button.png" width="102px"></a><br/>
 
       <br>
 Learn more about how to be prepared for the next earthquake:
@@ -979,8 +979,9 @@ Please leave your email address to periodically receive notifications about how 
 
           <span class="spanish"> 
 
-            <a href="http://twitter.com/intent/tweet?text=How+prepared+are+you+for+a+major+%23quake%3F+Try+QuakeCAFE+developed+by+%40GavinNewsom+%26+%40ken_goldberg+http%3A%2F%2Fquakecafe.org+%40citrisnews" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/twitter-button.png" width="102px"></a>
-      <a href="https://www.facebook.com/dialog/feed?app_id=694165360698061&link=http%3A%2F%2Fquakecafe.org&picture=http%3A%2F%2Fcaliforniareportcard.org%2Fcrc%2Fwp-content%2Fuploads%2FQuakeCAFE_How-Prepared-Are-You_Version1_SM-01.jpg&name=QuakeCAFE&caption=%20&description=How%20prepared%20are%20you%20for%20a%20major%20quake%3F%20Try%20QuakeCAFE%20developed%20by%20%40Cal%20%40GavinNewsom%20%26%20%40Ken_Goldberg%20http%3A%2F%2Fquakecafe.&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/facebook-button.png" width="102px"></a><br/>
+<span class="english"><a href="http://twitter.com/intent/tweet?text=How+prepared+are+you+for+a+major+%23quake%3F+Try+QuakeCAFE+developed+by+%40GavinNewsom+%26+%40ken_goldberg+http%3A%2F%2Fquakecafe.org+%40citrisnews" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/twitter-button.png" width="102px"></a>
+      <a href="https://www.facebook.com/dialog/feed?app_id=694165360698061&link=http%3A%2F%2Fquakecafe.org&picture=http%3A%2F%2Fcaliforniareportcard.org%2Fcrc%2Fwp-content%2Fuploads%2FQuakeCAFE_How-Prepared-Are-You_Version1_SM-01.jpg&name=QuakeCAFE&caption=%20&description=How%20prepared%20are%20you%20for%20a%20major%20quake%3F%20Try%20QuakeCAFE%20http%3A%2F%2Fquakecafe.org%20developed%20by%20%40Cal%20%40GavinNewsom%20%26%20%40ken_goldberg&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/facebook-button.png" width="102px">
+
 
             Información sobre las elecciones y los votantes: <a href="http://www.sos.ca.gov/elections/new-voter/spanish/" target="_blank" style="color: #555555;">California Información al Votante</a><br/><br/>
 
@@ -1080,8 +1081,8 @@ Please leave your email address to periodically receive notifications about how 
         <a href="http://quakecafe.org">quakecafe.org</a> #howpreparedareyou? </br>
 
           <center>
-              <span class="english"><a href="http://twitter.com/intent/tweet?text=How+prepared+are+you+for+a+major+%23quake%3F+Try+QuakeCAFE+developed+by+%40GavinNewsom+%26+%40ken_goldberg+http%3A%2F%2Fquakecafe.org+%40citrisnews" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/twitter-button.png" width="102px"></a>
-      <a href="https://www.facebook.com/dialog/feed?app_id=694165360698061&link=http%3A%2F%2Fquakecafe.org&picture=http%3A%2F%2Fcaliforniareportcard.org%2Fcrc%2Fwp-content%2Fuploads%2FQuakeCAFE_How-Prepared-Are-You_Version1_SM-01.jpg&name=QuakeCAFE&caption=%20&description=How%20prepared%20are%20you%20for%20a%20major%20quake%3F%20Try%20QuakeCAFE%20developed%20by%20%40Cal%20%40GavinNewsom%20%26%20%40Ken_Goldberg%20http%3A%2F%2Fquakecafe.&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/facebook-button.png" width="102px"></a><br/>
+<span class="english"><a href="http://twitter.com/intent/tweet?text=How+prepared+are+you+for+a+major+%23quake%3F+Try+QuakeCAFE+developed+by+%40GavinNewsom+%26+%40ken_goldberg+http%3A%2F%2Fquakecafe.org+%40citrisnews" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/twitter-button.png" width="102px"></a>
+      <a href="https://www.facebook.com/dialog/feed?app_id=694165360698061&link=http%3A%2F%2Fquakecafe.org&picture=http%3A%2F%2Fcaliforniareportcard.org%2Fcrc%2Fwp-content%2Fuploads%2FQuakeCAFE_How-Prepared-Are-You_Version1_SM-01.jpg&name=QuakeCAFE&caption=%20&description=How%20prepared%20are%20you%20for%20a%20major%20quake%3F%20Try%20QuakeCAFE%20http%3A%2F%2Fquakecafe.org%20developed%20by%20%40Cal%20%40GavinNewsom%20%26%20%40ken_goldberg&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F" target="_blank" style="color: #555555;"><img src="{{url_root}}/media/mobile/img/cafe/facebook-button.png" width="102px">
       </center>
 
         <!-- Below are several options to help you, your friends, and your family increase resilience and better prepare for a major earthquake.<br/><br/>See how your preparedness ratings compare to others' and learn more about how you can be better prepared. View and rate others' ideas for how the California State government can help people better prepare (and suggest your own idea). Share this survey with your friends and family to make sure they are prepared. -->

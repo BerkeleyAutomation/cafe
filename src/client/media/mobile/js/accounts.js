@@ -106,7 +106,7 @@ var accounts = (function($, d3, console) {
 
                         var skipOffset = 0
                         if (convertedSlider == 10)
-                            skipOffset = 7
+                            skipOffset = 5
 
                         context.moveTo(convertedSlider*15+6+skipOffset, 45);
                         context.lineTo(convertedSlider*15+6+skipOffset, Math.min(45 - data[convertedSlider]/max_of_array*38,42));
@@ -117,8 +117,8 @@ var accounts = (function($, d3, console) {
                            context.beginPath();
                         context.lineWidth = 10;
                         context.strokeStyle = '#0F85D4';
-                        context.moveTo(convertedSlider*28+10+skipOffset, 90);
-                        context.lineTo(convertedSlider*28+10+skipOffset, Math.min(90 - data[convertedSlider]/max_of_array*76, 86));
+                        context.moveTo(convertedSlider*25+10+skipOffset, 90);
+                        context.lineTo(convertedSlider*25+10+skipOffset, Math.min(90 - data[convertedSlider]/max_of_array*76, 86));
                         context.stroke();  
 
                         //blooms will be populated at the end of this! see callback
