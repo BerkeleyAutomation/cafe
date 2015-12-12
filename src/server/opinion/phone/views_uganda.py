@@ -99,7 +99,20 @@ def peer_rate(request, num):
             g.play(url('{}.wav').format(get_comment().id))
     else:
         # TODO: save Digits param for previous rating
-        pass
+        # os_save_rating
+        rating = request.POST.get("Digits", "")
+        # attempt to cast to an int?
+        num_rating = -1
+        try:
+            num_rating = int(rating)
+        except ValueError:
+            pass
+        if (num_rating == -1):
+            pass
+            # error handling???
+        else if (num_rating < 1 or num_rating > 5):
+            # Turn this into a rating between 0 and 1. 
+
 
     if num == 1:
         resp.say("Just rate one more suggestion and then you can tell us yours", voice='alice')
@@ -140,12 +153,8 @@ def finish(request):
                             is_current = True)
     comment.save()
     fname = str(comment.id)
-    save_audio(audio_recording, fname) # Does this work? Does this match the other function? What was data before?
-    return json_result({'success': True,})    
- 
-
     #save the audio recording
-
+    save_audio(audio_recording, fname) # Does this work? Does this match the other function? What was data before?
     resp = twilio.twiml.Response()
     resp.say("Thank you for completing the reproductive health survey. Please "
              "encourage other women to take this survey too. Good bye! ", voice='alice')
