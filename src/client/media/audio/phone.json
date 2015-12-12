@@ -4,8 +4,16 @@
         "description": "Welcome to the reproductive health survey"
     },
     {
+        "audio": "instructions-1.wav",
+        "description": "Throughout this survey you can push the # key to repeat what you just heard."
+    },
+    {
         "audio": "listen-statement-instructions.wav",
-        "description": "You will now hear some statements. After you hear each statement, press a number on your telephone to state how much you agree with the statement. 0 means you do not agree at all. 9 means you agree strongly."
+        "description": "You will now hear some statements."
+    },
+    {
+        "audio": "press-number-instructions.wav",
+        "description": "After you hear each statement, press a number from 0 to 4 on your telephone to state how much you agree with the statement. 0 means 'strongly disagree'; 1 means 'do not agree'; 2 means 'neutral'; 3 means 'agree' and 4 means 'strongly agree'"
     },
     {
         "audio": "statement-1.wav",
@@ -33,7 +41,7 @@
     },
     {
         "audio": "listen-comment-instructions.wav",
-        "description": "Now you will hear suggestions from other women on how to improve the center. Again, after you hear each statement, press a number on your telephone to state how much you agree"
+        "description": "Now you will hear suggestions from other women on how to improve the center."
     },
     {
         "audio": "listen-comment-instructions2.wav",
@@ -41,7 +49,11 @@
     },
     {
         "audio": "leave-comment-instructions.wav",
-        "description": "We would like to hear your suggestion. In what specific way can the nutrition centers be improved and why? Say your answer and then press a button on the phone."
+        "description": "We would like to hear your suggestion. In what specific way can the Nutrition Education Center be improved and why? Say your answer after the beep and then press any button on the phone to submit."
+    },
+    {
+        "audio": "topic.wav",
+        "description": "In what specific way can the Nutrition Education Center be improved and why?"
     },
     {
         "audio": "goodbye.wav",
