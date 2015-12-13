@@ -33,7 +33,6 @@ def begin(request):
     random_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(10))
     user = User.objects.create_user(username=username, password=random_password)
     user.save()
-    # Is this sufficient to save the user?
 
     resp = twilio.twiml.Response()
 
@@ -54,8 +53,26 @@ def statement(request, num):
     else:
         username = find_username_from_CallSid(request.POST.get("CallSid", ""))
         user = User.objects.filter(username = username)
-        
-        # TODO: save Digits param for previous rating
+
+        rating = request.POST.get("Digits", "")
+        # attempt to cast to an int?
+        num_rating = -1
+        try:
+            num_rating = int(rating)
+        except ValueError:
+            pass
+        value = -1
+        if (num_rating < 0 or num_rating > 4): # not a valid rating
+            pass # Repeat the instructions
+        else:   
+            value = num_rating / 5.0     
+            # TODO: save Digits param for previous rating
+            rating = UserRating(user = user, 
+                        opinion_space_id = 1, # Is this okay?  
+                        opinion_space_statement = OpinionSpaceStatement.objects.get(pk = num - 1),
+                        rating = value,
+                        is_current = True)
+            rating.save()
 
     if num == OpinionSpaceStatement.objects.filter().count():
         # resp.redirect(reverse(demographic))
@@ -86,7 +103,8 @@ def demographic(request):
             g.say("Enter your zip code to continue.")
     return HttpResponse(str(resp))
 
-def peer_rate(request, num):
+def peer_rate(request, num): # num counts the number of questions that the participant rates
+    # we need to add the comment id to the function definition.
     resp = twilio.twiml.Response()
     num = int(num)
 
@@ -107,11 +125,13 @@ def peer_rate(request, num):
             num_rating = int(rating)
         except ValueError:
             pass
-        if (num_rating == -1):
-            pass
-            # error handling???
-        else if (num_rating < 1 or num_rating > 5):
-            # Turn this into a rating between 0 and 1. 
+        value = -1
+        if (num_rating < 0 or num_rating > 4): # not a valid rating
+            pass # Repeat the instructions
+        else:     
+            value = num_rating / 5.0  
+            # TODO: save Digits param for previous rating - Insight rating and agreement rating
+            pass   
 
 
     if num == 1:
@@ -137,7 +157,7 @@ def record_comment(request):
 def finish(request):
     # TODO: save Recording param for previous rating
     audio_recording = requests.get(request.RecordingUrl) # This is a wav file
-    # os_id is not set though :(
+    # os_id is not set. Does os_id = 1 work?
     # os_save_comment code
     username = find_username_from_CallSid(request.POST.get("CallSid", ""))
     user = User.objects.filter(username = username)
