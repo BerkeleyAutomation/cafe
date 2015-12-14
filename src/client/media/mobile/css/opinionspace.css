@@ -9,6 +9,10 @@ Brown- 4e300f
 	font-weight: bold;
 }
 
+li{
+  margin: 10px 0;
+}
+
 @font-face {
     font-family: DroidSans;
     src: url('../css/Droid_Sans/DroidSans.ttf');
