@@ -236,7 +236,7 @@ table.pretty caption {
 }
 
 /* Large desktop */
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
 	.exit-text {width: 40%;}
 }
 
