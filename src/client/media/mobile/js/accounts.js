@@ -678,6 +678,7 @@ $(document).ready(function() {
         accounts.hideAll();
         $('.menubar').show();
             window.mugs.transition()
+	    .ease("bounce")
             .attr("x",function(d) {
                 return window.canvasx(d.x);
             })

@@ -669,7 +669,7 @@ $(document).ready(function() {
         // TODO: check if a ajax call
         //_blooms.populateBlooms();
         try {
-            for (var i = 0; i < 100; ++i) window.force.tick();
+            for (var i = 0; i < 1000; ++i) window.force.tick();
             window.force.stop();
         } catch (err) {}
 
