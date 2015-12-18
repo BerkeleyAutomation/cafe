@@ -79,8 +79,9 @@ def statement(request, num):
 
     resp.pause(length=1)
 
-    if (num == 0) and (not SHORT) :
-        resp.play(url("inst4.mp3"))
+    if (num == 0):
+        if not SHORT:
+            resp.play(url("inst4.mp3"))
         # resp.play(url("listen-statement-instructions.wav"))
         resp.pause(length=1)
     else:
@@ -117,7 +118,7 @@ def statement(request, num):
 
     # statement_text = list(OpinionSpaceStatement.objects.all())[num].statement
     with resp.gather(numDigits=1, action=reverse(statement, args=[num+1]),
-                     finishOnKey="any digit", timeout=20) as g:
+                     finishOnKey="any digit", timeout=10) as g:
         # ask_grade = "{}, grade the state {} on the {}.".format(
         #     intros[num],
         #     'of California' if num <= 2 else '',
@@ -125,6 +126,8 @@ def statement(request, num):
         # )
         # g.say(ask_grade)
         g.play(url('statement-{}.mp3'.format(num+1)))
+        resp.redirect(reverse(statement, args=[num+1]))
+
 
     return HttpResponse(str(resp))
 
@@ -177,6 +180,8 @@ def peer_rate(request, num, cid): # num counts the number of questions that the 
                          finishOnKey="any digit", timeout=15) as g:
             g.pause(length=2)
             g.play(curl)
+            resp.redirect(reverse(peer_rate, args=[num+1, cid]))
+
 
     if num == 1:
         # resp.say("Just rate one more suggestion and then you can tell us yours", voice='alice')
@@ -187,6 +192,8 @@ def peer_rate(request, num, cid): # num counts the number of questions that the 
             # g.say("The suggestion is...", voice='alice')
             g.pause(length=2)
             g.play(curl)
+            resp.redirect(reverse(peer_rate, args=[num+1, cid]))
+
 
     if num >= 2:
         resp.redirect(reverse(record_comment))
